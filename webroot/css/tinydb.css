@@ -1,0 +1,57 @@
+.tinydb_navigation_header {
+    font-size: small;
+    margin-bottom: 10px;
+}
+
+.tinydb_entry {
+    /* @see NetCommons/webroot/css/style.css
+	.frame.nc-content-list article h2のmargin-topとあわせた*/
+    padding-top: 16px;
+}
+.tinydb_entry:first-child {
+    padding-top: 0px;
+}
+
+.tinydb_entry_title {
+    /*margin-top: 0px;*/
+    /*margin-bottom: 20px;*/
+
+}
+
+.tinydb_entry_meta {
+    font-size: small;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+/* 一覧 */
+.tinydb_entry_status {
+    /*text-align: right;*/
+    /*float:right;*/
+}
+
+.tinydb_entry_body1 {
+    margin-bottom: 20px;
+}
+
+.tinydb_entry_reaction {
+    margin-top: 20px;
+    font-size: small;
+    margin-bottom: 20px;
+}
+
+.tinydb_entry_reaction div.pull-left{
+    margin-right: 10px;
+}
+/*.tinydb__content-comment-count{*/
+    /*padding-right: 15px;*/
+/*}*/
+
+.tinydb_view_title{
+    /*position: relative;*/
+}
+.tinydb_view_title h1 .label{
+    /*margin-left: 10px;*/
+}
+.tinydb_view_status{
+}

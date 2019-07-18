@@ -1,0 +1,137 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Tinydb/Controller/TinydbItemsController.php:117
+#: Tinydb/View/TinydbItems/index.ctp:32
+msgid "All Entries"
+msgstr ""
+
+#: Tinydb/Controller/TinydbItemsController.php:129
+#: Tinydb/Test/Case/Controller/TinydbItemsController/IndexTest.php:110
+#: Tinydb/View/TinydbItems/index.ctp:33
+#: Tinydb/View/Elements/entry_meta_info.ctp:11
+msgid "Category"
+msgstr ""
+
+#: Tinydb/Controller/TinydbItemsController.php:152
+#: Tinydb/Test/Case/Controller/TinydbItemsController/TagTest.php:125
+msgid "Tag"
+msgstr ""
+
+#: Tinydb/Controller/TinydbItemsController.php:178
+msgid "%d-%d Tinydb Entry List"
+msgstr ""
+
+#: Tinydb/Controller/TinydbItemsController.php:179
+msgid "%d-%d"
+msgstr ""
+
+#: Tinydb/Controller/TinydbItemsController.php:327
+msgid "%d-%d (%s)"
+msgstr ""
+
+#: Tinydb/Model/Tinydb.php:107
+#: Tinydb/Test/Case/Controller/TinydbBlocksController/EditTest.php:132;161
+#: Tinydb/Test/Case/Model/Tinydb/ValidateTest.php:78
+#: Tinydb/View/TinydbBlocks/index.ctp:29
+#: Tinydb/View/Elements/TinydbBlocks/edit_form.ctp:26
+msgid "Tinydb name"
+msgstr ""
+
+#: Tinydb/Model/Tinydb.php:176
+msgid "New tinydb %s"
+msgstr ""
+
+#: Tinydb/Model/TinydbItem.php:139
+#: Tinydb/Test/Case/Controller/TinydbItemsEditController/AddTest.php:232
+#: Tinydb/Test/Case/Controller/TinydbItemsEditController/EditTest.php:353
+#: Tinydb/Test/Case/Model/TinydbItem/ValidateTest.php:77
+#: Tinydb/View/TinydbItemsEdit/form.ctp:47
+msgid "Title"
+msgstr ""
+
+#: Tinydb/Model/TinydbItem.php:149
+#: Tinydb/Test/Case/Model/TinydbItem/ValidateTest.php:80
+#: Tinydb/View/TinydbItemsEdit/form.ctp:53
+msgid "Body1"
+msgstr ""
+
+#: Tinydb/Model/TinydbItem.php:160
+#: Tinydb/Test/Case/Model/TinydbItem/ValidateTest.php:83
+#: Tinydb/View/TinydbItemsEdit/form.ctp:75
+msgid "Published datetime"
+msgstr ""
+
+#: Tinydb/Test/Case/Controller/TinydbItemsController/IndexTest.php:133;167;201
+#: Tinydb/View/TinydbItems/index.ctp:78
+msgid "Add entry"
+msgstr ""
+
+#: Tinydb/Test/Case/View/Elements/EntryMetaInfoTest.php:68
+#: Tinydb/View/Elements/entry_meta_info.ctp:4
+msgid "posted : %s"
+msgstr ""
+
+#: Tinydb/Test/Case/View/Elements/TinydbBlocks/DeleteFormTest.php:64
+#: Tinydb/View/Elements/TinydbBlocks/delete_form.ctp:14;28
+msgid "Tinydb"
+msgstr ""
+
+#: Tinydb/View/TinydbItems/index.ctp:49
+msgid "Archive"
+msgstr ""
+
+#: Tinydb/View/TinydbItems/index.ctp:87
+#: Tinydb/View/TinydbItemsEdit/form.ctp:113
+#: Tinydb/View/Elements/TinydbBlockRolePermissions/edit_form.ctp:34
+msgid "TinydbItem"
+msgstr ""
+
+#: Tinydb/View/TinydbItems/index.ctp:116
+msgid "Read more"
+msgstr ""
+
+#: Tinydb/View/TinydbItems/index.ctp:122
+msgid "Close"
+msgstr ""
+
+#: Tinydb/View/TinydbItems/view.ctp:47
+msgid "tag"
+msgstr ""
+
+#: Tinydb/View/TinydbItemsEdit/form.ctp:59
+msgid "Write body2"
+msgstr ""
+
+#: Tinydb/View/TinydbItemsEdit/form.ctp:65
+msgid "Body2"
+msgstr ""
+
+#: Tinydb/View/TinydbMailSettings/edit.ctp:23
+msgid "MailSetting.mail_fixed_phrase_body.popover"
+msgstr ""
+
+#: Tinydb/View/Elements/TinydbBlocks/edit_form.ctp:39
+msgid "Use sns"
+msgstr ""
+
+#: Tinydb/View/Elements/TinydbFrameSettings/edit_form.ctp:22
+msgid "%s article"
+msgstr ""
+
+#: Tinydb/View/Elements/TinydbFrameSettings/edit_form.ctp:23
+msgid "%s articles"
+msgstr ""
+
