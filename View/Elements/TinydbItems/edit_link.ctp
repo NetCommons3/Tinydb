@@ -26,5 +26,21 @@
 				//'iconSize' => 'btn-xs'
 			)
 		); ?>
+
+		<?php echo $this->Button->addLink(
+			__d('school_informations', 'この記事を元に追加'),
+			array(
+				'controller' => 'tinydb_items_edit',
+				'action' => 'add_from_item',
+				'key' => $tinydbItem['TinydbItem']['key'],
+				'frame_id' => Current::read('Frame.id'),
+			),
+			array(
+				'tooltip' => true,
+				//'iconSize' => 'btn-xs'
+			)
+		); ?>
+
 	</div>
+
 <?php endif;

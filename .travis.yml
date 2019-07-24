@@ -32,10 +32,3 @@ script:
 
 after_script:
   - . tools/build/plugins/cakephp/travis/post.sh
-
-notifications:
-  email:
-    recipients:
-      - netcommons3@googlegroups.com
-    on_success: never  # default: change
-    on_failure: always # default: always

@@ -65,10 +65,57 @@ class TinydbItemsEditController extends TinydbAppController {
  * @return void
  */
 	public function add() {
+		$tinydbItem = $this->TinydbItem->getNew();
+
+		return $this->__add($tinydbItem);
+	}
+
+/**
+ * この記事を元に追加
+ *
+ * @return void
+ */
+	public function add_from_item() {
+		$this->set('isEdit', false);
+		$key = $this->params['key'];
+		//  keyのis_latstを元に編集を開始
+		$this->TinydbItem->recursive = 0;
+		$tinydbItem = $this->TinydbItem->getWorkflowContents('first', array(
+			'recursive' => 0,
+			'conditions' => array(
+				'TinydbItem.key' => $key
+			)
+		));
+		if (empty($tinydbItem)) {
+			return $this->throwBadRequest();
+		}
+
+		// 初期化したいフィールドはunsetする
+		// 新規扱いにするのでidは削除する
+		unset($tinydbItem['TinydbItem']['id']);
+		unset($tinydbItem['TinydbItem']['key']);
+		unset($tinydbItem['TinydbItem']['created']);
+		unset($tinydbItem['TinydbItem']['created_user']);
+		unset($tinydbItem['TinydbItem']['modified']);
+		unset($tinydbItem['TinydbItem']['modified_user']);
+		unset($tinydbItem['TinydbItem']['is_latest']);
+		unset($tinydbItem['TinydbItem']['is_active']);
+		unset($tinydbItem['TinydbItem']['status']);
+		unset($tinydbItem['TinydbItem']['publish_start']);
+
+		$this->__add($tinydbItem);
+	}
+
+/**
+ * 新規追加アクションのメイン
+ *
+ * @param array $tinydbItem TinydbItemData
+ * @return void
+ */
+	private function __add(array $tinydbItem) {
 		$this->set('isEdit', false);
 		$this->_prepare();
 
-		$tinydbItem = $this->TinydbItem->getNew();
 		$this->set('tinydbItem', $tinydbItem);
 
 		if ($this->request->is('post')) {
@@ -91,7 +138,8 @@ class TinydbItemsEditController extends TinydbAppController {
 						'action' => 'view',
 						'block_id' => Current::read('Block.id'),
 						'frame_id' => Current::read('Frame.id'),
-						'key' => $result['TinydbItem']['key'])
+						'key' => $result['TinydbItem']['key']
+					)
 				);
 				return $this->redirect($url);
 			}

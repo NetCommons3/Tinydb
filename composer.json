@@ -44,5 +44,11 @@
     ],
     "config": {
         "vendor-dir": "vendors"
+    },
+    "autoload": {
+        "psr-4": {
+            "Edumap\\Tinydb\\": "",
+            "Edumap\\Tinydb\\TestCase\\": "Test/Case/"
+        }
     }
 }
