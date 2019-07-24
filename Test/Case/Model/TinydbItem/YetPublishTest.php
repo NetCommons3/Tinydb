@@ -74,20 +74,20 @@ class TinydbItemYetPublishTest extends WorkflowGetTest {
 /**
  * yetPublish()のテスト
  *
- * @param array $tinydbEntry テスト対応の記事
+ * @param array $tinydbItem テスト対応の記事
  * @param bool $expected yetPublishの期待値
  * @return void
  * @dataProvider dataProvider4testYetPublish
  */
-	public function testYetPublish($tinydbEntry, $expected) {
+	public function testYetPublish($tinydbItem, $expected) {
 		$model = $this->_modelName;
 		$methodName = $this->_methodName;
 
 		//データ生成
-		//$tinydbEntry = null;
+		//$tinydbItem = null;
 
 		//テスト実施
-		$result = $this->$model->$methodName($tinydbEntry);
+		$result = $this->$model->$methodName($tinydbItem);
 
 		$this->assertEquals($expected, $result);
 	}

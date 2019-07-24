@@ -1,6 +1,6 @@
 <?php
 /**
- * View/Elements/entry_meta_infoテスト用Controller
+ * View/Elements/item_meta_infoテスト用Controller
  *
  * @author Noriko Arai <arai@nii.ac.jp>
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
@@ -12,21 +12,21 @@
 App::uses('AppController', 'Controller');
 
 /**
- * View/Elements/entry_meta_infoテスト用Controller
+ * View/Elements/item_meta_infoテスト用Controller
  *
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
  * @package NetCommons\Tinydb\Test\test_app\Plugin\TestTinydb\Controller
  */
-class TestViewElementsEntryMetaInfoController extends AppController {
+class TestViewElementsItemMetaInfoController extends AppController {
 
 /**
- * entry_meta_info
+ * item_meta_info
  *
  * @return void
  */
-	public function entry_meta_info() {
+	public function item_meta_info() {
 		$this->autoRender = true;
-		$tinydbEntry = [
+		$tinydbItem = [
 			'TinydbItem' => [
 				'key' => 'content_key_1',
 				'status' => WorkflowComponent::STATUS_PUBLISHED,
@@ -42,7 +42,7 @@ class TestViewElementsEntryMetaInfoController extends AppController {
 				'name' => 'Category Name'
 			],
 		];
-		$this->set('tinydbEntry', $tinydbEntry);
+		$this->set('tinydbItem', $tinydbItem);
 	}
 
 }

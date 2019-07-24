@@ -48,7 +48,7 @@ class TinydbOgpGetlocalAccesUrlTest extends NetCommonsHelperTestCase {
 			//'plugin' => 'tinydb',
 			//'controller' => 'tinydb_items',
 			//'action' => 'view',
-			//'key' => 'entry_1'
+			//'key' => 'item_1'
 		);
 
 		// テスト時のURL変換マップ

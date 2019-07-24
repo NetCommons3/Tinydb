@@ -1,6 +1,6 @@
 <?php
 /**
- * TinydbItem::deleteEntryByKey()のテスト
+ * TinydbItem::deleteItemByKey()のテスト
  *
  * @author Noriko Arai <arai@nii.ac.jp>
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
@@ -14,12 +14,12 @@ App::uses('NetCommonsModelTestCase', 'NetCommons.TestSuite');
 App::uses('TinydbItemFixture', 'Tinydb.Test/Fixture');
 
 /**
- * TinydbItem::deleteEntryByKey()のテスト
+ * TinydbItem::deleteItemByKey()のテスト
  *
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
  * @package NetCommons\Tinydb\Test\Case\Model\TinydbItem
  */
-class TinydbItemDeleteEntryByKeyTest extends NetCommonsModelTestCase {
+class TinydbItemDeleteItemByKeyTest extends NetCommonsModelTestCase {
 
 /**
  * Fixtures
@@ -56,7 +56,7 @@ class TinydbItemDeleteEntryByKeyTest extends NetCommonsModelTestCase {
  *
  * @var string
  */
-	protected $_methodName = 'deleteEntryByKey';
+	protected $_methodName = 'deleteItemByKey';
 
 /**
  * setUp
@@ -82,13 +82,13 @@ class TinydbItemDeleteEntryByKeyTest extends NetCommonsModelTestCase {
 	}
 
 /**
- * testDeleteEntryByKey
+ * testDeleteItemByKey
  *
  * @return void
  */
-	public function testDeleteEntryByKey() {
+	public function testDeleteItemByKey() {
 		$key = 'content_key_1';
-		$result = $this->TinydbItem->deleteEntryByKey($key);
+		$result = $this->TinydbItem->deleteItemByKey($key);
 		$this->assertTrue($result);
 
 		$count = $this->TinydbItem->find('count', ['conditions' => ['key' => $key]]);
@@ -97,21 +97,21 @@ class TinydbItemDeleteEntryByKeyTest extends NetCommonsModelTestCase {
 	}
 
 /**
- * testDeleteEntryByKey delete failed
+ * testDeleteItemByKey delete failed
  *
  * @return void
  */
-	public function testDeleteEntryByKeyFailed() {
+	public function testDeleteItemByKeyFailed() {
 		$key = 'content_key_1';
-		$tinydbEntryMock = $this->getMockForModel('Tinydb.TinydbItem', ['deleteAll']);
-		$tinydbEntryMock->expects($this->once())
+		$tinydbItemMock = $this->getMockForModel('Tinydb.TinydbItem', ['deleteAll']);
+		$tinydbItemMock->expects($this->once())
 			->method('deleteAll')
 			->will($this->returnValue(false));
 
-		$this->_removeBehaviors($tinydbEntryMock);
+		$this->_removeBehaviors($tinydbItemMock);
 
 		$this->setExpectedException('InternalErrorException');
-		$tinydbEntryMock->deleteEntryByKey($key);
+		$tinydbItemMock->deleteItemByKey($key);
 	}
 
 }

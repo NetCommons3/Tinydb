@@ -75,7 +75,7 @@ echo $this->NetCommonsHtml->script([
 			);
 			echo $this->Button->addLink('',
 				$addUrl,
-			array('tooltip' => __d('tinydb', 'Add entry')));
+			array('tooltip' => __d('tinydb', 'Add item')));
 			?>
 		</div>
 		<?php endif ?>
@@ -89,40 +89,40 @@ echo $this->NetCommonsHtml->script([
 
 	<?php else : ?>
 		<div class="nc-content-list">
-			<?php foreach ($tinydbEntries as $tinydbEntry): ?>
+			<?php foreach ($tinydbEntries as $tinydbItem): ?>
 
-				<article class="tinydb_entry" ng-controller="Tinydb.Entries.Entry">
-					<h2 class="tinydb_entry_title">
-						<?php echo $this->TitleIcon->titleIcon($tinydbEntry['TinydbItem']['title_icon']); ?>
+				<article class="tinydb_item" ng-controller="Tinydb.Entries.Item">
+					<h2 class="tinydb_item_title">
+						<?php echo $this->TitleIcon->titleIcon($tinydbItem['TinydbItem']['title_icon']); ?>
 						<?php echo $this->NetCommonsHtml->link(
-							$tinydbEntry['TinydbItem']['title'],
+							$tinydbItem['TinydbItem']['title'],
 							array(
 								'controller' => 'tinydb_items',
 								'action' => 'view',
 								//'frame_id' => Current::read('Frame.id'),
-								'key' => $tinydbEntry['TinydbItem']['key']
+								'key' => $tinydbItem['TinydbItem']['key']
 							)
 						);
 						?>
-						<?php echo $this->Workflow->label($tinydbEntry['TinydbItem']['status']); ?>
+						<?php echo $this->Workflow->label($tinydbItem['TinydbItem']['status']); ?>
 					</h2>
-					<?php echo $this->element('Tinydb.entry_meta_info', array('tinydbEntry' => $tinydbEntry)); ?>
+					<?php echo $this->element('Tinydb.item_meta_info', array('tinydbItem' => $tinydbItem)); ?>
 
-					<div class="clearfix tinydb_entry_body1">
-						<?php echo $tinydbEntry['TinydbItem']['body1']; ?>
+					<div class="clearfix tinydb_item_body1">
+						<?php echo $tinydbItem['TinydbItem']['body1']; ?>
 					</div>
-					<?php if ($tinydbEntry['TinydbItem']['body2']) : ?>
+					<?php if ($tinydbItem['TinydbItem']['body2']) : ?>
 						<div class="clearfix" ng-hide="isShowBody2">
 							<a ng-click="showBody2()"><?php echo __d('tinydb', 'Read more'); ?></a>
 						</div>
 						<div class="clearfix" ng-show="isShowBody2">
-							<?php echo $tinydbEntry['TinydbItem']['body2'] ?>
+							<?php echo $tinydbItem['TinydbItem']['body2'] ?>
 						</div>
 						<div class="clearfix" ng-show="isShowBody2">
 							<a ng-click="hideBody2()"><?php echo __d('tinydb', 'Close'); ?></a>
 						</div>
 					<?php endif ?>
-					<?php echo $this->element('Tinydb.entry_footer', array('tinydbEntry' => $tinydbEntry, 'index' => true)); ?>
+					<?php echo $this->element('Tinydb.item_footer', array('tinydbItem' => $tinydbItem, 'index' => true)); ?>
 				</article>
 
 			<?php endforeach; ?>

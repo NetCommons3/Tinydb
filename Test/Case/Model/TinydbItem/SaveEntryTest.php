@@ -1,6 +1,6 @@
 <?php
 /**
- * TinydbItem::saveEntry()のテスト
+ * TinydbItem::saveItem()のテスト
  *
  * @author Noriko Arai <arai@nii.ac.jp>
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
@@ -13,12 +13,12 @@ App::uses('WorkflowSaveTest', 'Workflow.TestSuite');
 App::uses('TinydbItemFixture', 'Tinydb.Test/Fixture');
 
 /**
- * TinydbItem::saveEntry()のテスト
+ * TinydbItem::saveItem()のテスト
  *
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
  * @package NetCommons\Tinydb\Test\Case\Model\TinydbItem
  */
-class TinydbItemSaveEntryTest extends WorkflowSaveTest {
+class TinydbItemSaveItemTest extends WorkflowSaveTest {
 
 /**
  * Fixtures
@@ -64,7 +64,7 @@ class TinydbItemSaveEntryTest extends WorkflowSaveTest {
  *
  * @var string
  */
-	protected $_methodName = 'saveEntry';
+	protected $_methodName = 'saveItem';
 
 /**
  * setUp

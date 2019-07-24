@@ -1,6 +1,6 @@
 <?php
 /**
- * View/Elements/entry_meta_infoテスト用Viewファイル
+ * View/Elements/item_meta_infoテスト用Viewファイル
  *
  * @author Noriko Arai <arai@nii.ac.jp>
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
@@ -11,6 +11,6 @@
 
 ?>
 
-View/Elements/entry_meta_info
+View/Elements/item_meta_info
 
-<?php echo $this->element('Tinydb.entry_meta_info');
+<?php echo $this->element('Tinydb.item_meta_info');

@@ -269,7 +269,7 @@ class TinydbItemsEditControllerDeleteTest extends WorkflowControllerDeleteTest {
 		$results = array();
 		$results[0] = array(
 			'mockModel' => 'Tinydb.TinydbItem', // Mockモデルをセットする
-			'mockMethod' => 'deleteEntryByKey', // Mockメソッドをセットする
+			'mockMethod' => 'deleteItemByKey', // Mockメソッドをセットする
 			'data' => $data,
 			'urlOptions' => array(
 				'frame_id' => $data['Frame']['id'],

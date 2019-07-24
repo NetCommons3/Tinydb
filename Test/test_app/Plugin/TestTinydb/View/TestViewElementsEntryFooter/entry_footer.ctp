@@ -1,6 +1,6 @@
 <?php
 /**
- * View/Elements/entry_footerテスト用Viewファイル
+ * View/Elements/item_footerテスト用Viewファイル
  *
  * @author Noriko Arai <arai@nii.ac.jp>
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
@@ -11,6 +11,6 @@
 
 ?>
 
-View/Elements/entry_footer
+View/Elements/item_footer
 
-<?php echo $this->element('Tinydb.entry_footer');
+<?php echo $this->element('Tinydb.item_footer');

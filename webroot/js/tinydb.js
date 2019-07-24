@@ -14,7 +14,7 @@ NetCommonsApp.controller('Tinydb.Entries',
     }]
 );
 
-NetCommonsApp.controller('Tinydb.Entries.Entry',
+NetCommonsApp.controller('Tinydb.Entries.Item',
     ['$scope', function($scope) {
       $scope.isShowBody2 = false;
 

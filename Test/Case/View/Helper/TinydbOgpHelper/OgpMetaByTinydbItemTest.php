@@ -48,7 +48,7 @@ class TinydbOgpOgpMetaByTinydbItemTest extends NetCommonsHelperTestCase {
 			'plugin' => 'tinydb',
 			'controller' => 'tinydb_items',
 			'action' => 'view',
-			'key' => 'entry_1'
+			'key' => 'item_1'
 		);
 		//Helperロード
 		$this->loadHelper('Tinydb.TinydbOgp', $viewVars, $requestData, $params);
@@ -59,16 +59,16 @@ class TinydbOgpOgpMetaByTinydbItemTest extends NetCommonsHelperTestCase {
  *
  * @throws ReflectionException
  */
-	public function testNoImageEntry() {
-		$tinydbEntry = [
+	public function testNoImageItem() {
+		$tinydbItem = [
 			'TinydbItem' => [
-				'key' => 'entry_1',
-				'title' => 'Tinydb entry title',
+				'key' => 'item_1',
+				'title' => 'Tinydb item title',
 				'body1' => 'Body1 text.'
 			]
 		];
 
-		$this->TinydbOgp->ogpMetaByTinydbItem($tinydbEntry);
+		$this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 
 		// Viewにアクセスできるようにする
 		$property = new ReflectionProperty($this->TinydbOgp, '_View');
@@ -76,9 +76,9 @@ class TinydbOgpOgpMetaByTinydbItemTest extends NetCommonsHelperTestCase {
 		$view = $property->getValue($this->TinydbOgp);
 		$html = $view->fetch('meta');
 
-		$this->assertTextContains('<meta property="og:title" content="Tinydb entry title"', $html);
+		$this->assertTextContains('<meta property="og:title" content="Tinydb item title"', $html);
 		$this->assertTextContains(
-			'<meta property="og:url" content="' . FULL_BASE_URL . '/tinydb/tinydb_items/view/entry_1"',
+			'<meta property="og:url" content="' . FULL_BASE_URL . '/tinydb/tinydb_items/view/item_1"',
 		$html);
 		$this->assertTextContains('<meta property="og:description" content="Body1 text."', $html);
 		$this->assertTextContains('<meta property="twitter:card" content="summary_large_image"', $html);

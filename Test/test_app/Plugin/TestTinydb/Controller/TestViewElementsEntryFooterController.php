@@ -1,6 +1,6 @@
 <?php
 /**
- * View/Elements/entry_footerテスト用Controller
+ * View/Elements/item_footerテスト用Controller
  *
  * @author Noriko Arai <arai@nii.ac.jp>
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
@@ -12,12 +12,12 @@
 App::uses('AppController', 'Controller');
 
 /**
- * View/Elements/entry_footerテスト用Controller
+ * View/Elements/item_footerテスト用Controller
  *
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
  * @package NetCommons\Tinydb\Test\test_app\Plugin\TestTinydb\Controller
  */
-class TestViewElementsEntryFooterController extends AppController {
+class TestViewElementsItemFooterController extends AppController {
 
 /**
  * @var array Model
@@ -34,8 +34,8 @@ class TestViewElementsEntryFooterController extends AppController {
 		'Likes.Like',
 		'ContentComments.ContentComment' => array(
 			'viewVarsKey' => array(
-				'contentKey' => 'tinydbEntry.TinydbItem.key',
-				'contentTitleForMail' => 'tinydbEntry.TinydbItem.title',
+				'contentKey' => 'tinydbItem.TinydbItem.key',
+				'contentTitleForMail' => 'tinydbItem.TinydbItem.title',
 				'useComment' => 'tinydbSetting.use_comment',
 				'useCommentApproval' => 'tinydbSetting.use_comment_approval'
 			)
@@ -43,11 +43,11 @@ class TestViewElementsEntryFooterController extends AppController {
 	];
 
 /**
- * entry_footer
+ * item_footer
  *
  * @return void
  */
-	public function entry_footer() {
+	public function item_footer() {
 		$this->autoRender = true;
 
 		$tinydbSetting = [
@@ -55,7 +55,7 @@ class TestViewElementsEntryFooterController extends AppController {
 			'use_like' => true,
 
 		];
-		$tinydbEntry = [
+		$tinydbItem = [
 			'TinydbItem' => [
 				'key' => 'content_key_1',
 				'title' => 'title',
@@ -63,7 +63,7 @@ class TestViewElementsEntryFooterController extends AppController {
 			]
 		];
 		$this->set('tinydbSetting', $tinydbSetting);
-		$this->set('tinydbEntry', $tinydbEntry);
+		$this->set('tinydbItem', $tinydbItem);
 		$this->set('index', true);
 	}
 
@@ -80,16 +80,16 @@ class TestViewElementsEntryFooterController extends AppController {
 			'use_like' => true,
 
 		];
-		$tinydbEntry = [
+		$tinydbItem = [
 			'TinydbItem' => [
 				'key' => 'content_key_1',
 				'status' => WorkflowComponent::STATUS_PUBLISHED,
 			]
 		];
 		$this->set('tinydbSetting', $tinydbSetting);
-		$this->set('tinydbEntry', $tinydbEntry);
+		$this->set('tinydbItem', $tinydbItem);
 		$this->set('index', true);
-		$this->render('entry_footer');
+		$this->render('item_footer');
 	}
 
 /**
@@ -105,16 +105,16 @@ class TestViewElementsEntryFooterController extends AppController {
 			'use_like' => true,
 
 		];
-		$tinydbEntry = [
+		$tinydbItem = [
 			'TinydbItem' => [
 				'key' => 'content_key_1',
 				'status' => WorkflowComponent::STATUS_PUBLISHED,
 			]
 		];
 		$this->set('tinydbSetting', $tinydbSetting);
-		$this->set('tinydbEntry', $tinydbEntry);
+		$this->set('tinydbItem', $tinydbItem);
 		$this->set('index', false);
-		$this->render('entry_footer');
+		$this->render('item_footer');
 	}
 
 }

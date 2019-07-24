@@ -265,7 +265,7 @@ class TinydbItem extends TinydbAppModel {
 	}
 
 /**
- * UserIdと権限から参照可能なEntryを取得するCondition配列を返す
+ * UserIdと権限から参照可能なItemを取得するCondition配列を返す
  *
  * @param int $blockId ブロックId
  * @param array $permissions 権限
@@ -331,7 +331,7 @@ class TinydbItem extends TinydbAppModel {
 
 		$ret = array();
 		//　一番古い記事を取得
-		$oldestEntry = $this->find('first',
+		$oldestItem = $this->find('first',
 			array(
 				'conditions' => $conditions,
 				'order' => 'TinydbItem.publish_start ASC',
@@ -339,9 +339,9 @@ class TinydbItem extends TinydbAppModel {
 		);
 
 		// 一番古い記事の年月から現在までを先にゼロ埋め
-		if (isset($oldestEntry['TinydbItem'])) {
+		if (isset($oldestItem['TinydbItem'])) {
 			$currentYearMonthDay = date('Y-m-01', strtotime(
-				$netCommonsTime->toUserDatetime($oldestEntry['TinydbItem']['publish_start'])));
+				$netCommonsTime->toUserDatetime($oldestItem['TinydbItem']['publish_start'])));
 		} else {
 			// 記事がなかったら今月だけ
 			$currentYearMonthDay = date('Y-m-01', strtotime($currentDateTime));
@@ -384,7 +384,7 @@ class TinydbItem extends TinydbAppModel {
  * @return bool
  * @throws InternalErrorException
  */
-	public function saveEntry($data) {
+	public function saveItem($data) {
 		// category_id=0だったらnullにする。そうしないと空文字としてSQL発行される
 		if (empty($data[$this->alias]['category_id'])) {
 			$data[$this->alias]['category_id'] = null;
@@ -423,7 +423,7 @@ class TinydbItem extends TinydbAppModel {
  * @throws InternalErrorException
  * @return bool
  */
-	public function deleteEntryByKey($key) {
+	public function deleteItemByKey($key) {
 		// ε(　　　　 v ﾟωﾟ)　＜タグリンク削除
 		$this->begin();
 		try{
@@ -445,12 +445,12 @@ class TinydbItem extends TinydbAppModel {
 /**
  * 過去に一度も公開されてないか
  *
- * @param array $tinydbEntry チェック対象記事
+ * @param array $tinydbItem チェック対象記事
  * @return bool true:公開されてない false: 公開されたことあり
  */
-	public function yetPublish($tinydbEntry) {
+	public function yetPublish($tinydbItem) {
 		$conditions = array(
-			'TinydbItem.key' => $tinydbEntry['TinydbItem']['key'],
+			'TinydbItem.key' => $tinydbItem['TinydbItem']['key'],
 			'TinydbItem.is_active' => 1
 		);
 		$count = $this->find('count', array('conditions' => $conditions));

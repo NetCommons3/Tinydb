@@ -131,7 +131,7 @@ class TinydbItemsControllerIndexTest extends WorkflowControllerIndexTest {
 		parent::testIndex($urlOptions, $assert, $exception, $return);
 
 		// ゲストなら追加ボタンはでない
-		$this->assertTextNotContains(__d('tinydb', 'Add entry'), $this->view);
+		$this->assertTextNotContains(__d('tinydb', 'Add item'), $this->view);
 	}
 
 /**
@@ -165,7 +165,7 @@ class TinydbItemsControllerIndexTest extends WorkflowControllerIndexTest {
 
 		//チェック
 		// 追加ボタンがある
-		$this->assertTextContains(__d('tinydb', 'Add entry'), $this->view);
+		$this->assertTextContains(__d('tinydb', 'Add item'), $this->view);
 	}
 
 /**
@@ -199,7 +199,7 @@ class TinydbItemsControllerIndexTest extends WorkflowControllerIndexTest {
 
 		//チェック
 		// 追加ボタンがある
-		$this->assertTextContains(__d('tinydb', 'Add entry'), $this->view);
+		$this->assertTextContains(__d('tinydb', 'Add item'), $this->view);
 	}
 
 }

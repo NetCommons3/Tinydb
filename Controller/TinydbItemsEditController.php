@@ -68,8 +68,8 @@ class TinydbItemsEditController extends TinydbAppController {
 		$this->set('isEdit', false);
 		$this->_prepare();
 
-		$tinydbEntry = $this->TinydbItem->getNew();
-		$this->set('tinydbEntry', $tinydbEntry);
+		$tinydbItem = $this->TinydbItem->getNew();
+		$this->set('tinydbItem', $tinydbItem);
 
 		if ($this->request->is('post')) {
 			$this->TinydbItem->create();
@@ -84,7 +84,7 @@ class TinydbItemsEditController extends TinydbAppController {
 			$this->request->data['TinydbItem']['block_id'] = Current::read('Block.id');
 			// set language_id
 			$this->request->data['TinydbItem']['language_id'] = Current::read('Language.id');
-			if (($result = $this->TinydbItem->saveEntry($this->request->data))) {
+			if (($result = $this->TinydbItem->saveItem($this->request->data))) {
 				$url = NetCommonsUrl::actionUrl(
 					array(
 						'controller' => 'tinydb_items',
@@ -99,7 +99,7 @@ class TinydbItemsEditController extends TinydbAppController {
 			$this->NetCommons->handleValidationError($this->TinydbItem->validationErrors);
 
 		} else {
-			$this->request->data = $tinydbEntry;
+			$this->request->data = $tinydbItem;
 			$this->request->data['Tag'] = array();
 		}
 
@@ -118,17 +118,17 @@ class TinydbItemsEditController extends TinydbAppController {
 
 		//  keyのis_latstを元に編集を開始
 		$this->TinydbItem->recursive = 0;
-		$tinydbEntry = $this->TinydbItem->getWorkflowContents('first', array(
+		$tinydbItem = $this->TinydbItem->getWorkflowContents('first', array(
 			'recursive' => 0,
 			'conditions' => array(
 				'TinydbItem.key' => $key
 			)
 		));
-		if (empty($tinydbEntry)) {
+		if (empty($tinydbItem)) {
 			return $this->throwBadRequest();
 		}
 
-		if ($this->TinydbItem->canEditWorkflowContent($tinydbEntry) === false) {
+		if ($this->TinydbItem->canEditWorkflowContent($tinydbItem) === false) {
 			return $this->throwBadRequest();
 		}
 		$this->_prepare();
@@ -152,7 +152,7 @@ class TinydbItemsEditController extends TinydbAppController {
 
 			unset($data['TinydbItem']['id']); // 常に新規保存
 
-			if ($this->TinydbItem->saveEntry($data)) {
+			if ($this->TinydbItem->saveItem($data)) {
 				$url = NetCommonsUrl::actionUrl(
 					array(
 						'controller' => 'tinydb_items',
@@ -170,14 +170,14 @@ class TinydbItemsEditController extends TinydbAppController {
 
 		} else {
 
-			$this->request->data = $tinydbEntry;
+			$this->request->data = $tinydbItem;
 
 		}
 
-		$this->set('tinydbEntry', $tinydbEntry);
-		$this->set('isDeletable', $this->TinydbItem->canDeleteWorkflowContent($tinydbEntry));
+		$this->set('tinydbItem', $tinydbItem);
+		$this->set('isDeletable', $this->TinydbItem->canDeleteWorkflowContent($tinydbItem));
 
-		$comments = $this->TinydbItem->getCommentsByContentKey($tinydbEntry['TinydbItem']['key']);
+		$comments = $this->TinydbItem->getCommentsByContentKey($tinydbItem['TinydbItem']['key']);
 		$this->set('comments', $comments);
 
 		$this->view = 'form';
@@ -193,7 +193,7 @@ class TinydbItemsEditController extends TinydbAppController {
 		$this->request->allowMethod('post', 'delete');
 
 		$key = $this->request->data['TinydbItem']['key'];
-		$tinydbEntry = $this->TinydbItem->getWorkflowContents('first', array(
+		$tinydbItem = $this->TinydbItem->getWorkflowContents('first', array(
 			'recursive' => 0,
 			'conditions' => array(
 				'TinydbItem.key' => $key
@@ -201,11 +201,11 @@ class TinydbItemsEditController extends TinydbAppController {
 		));
 
 		// 権限チェック
-		if ($this->TinydbItem->canDeleteWorkflowContent($tinydbEntry) === false) {
+		if ($this->TinydbItem->canDeleteWorkflowContent($tinydbItem) === false) {
 			return $this->throwBadRequest();
 		}
 
-		if ($this->TinydbItem->deleteEntryByKey($key) === false) {
+		if ($this->TinydbItem->deleteItemByKey($key) === false) {
 			throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
 		}
 		return $this->redirect(

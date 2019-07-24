@@ -97,15 +97,15 @@ class TinydbOgpHelper extends AppHelper {
 /**
  * OGPタグ出力
  *
- * @param array $tinydbEntry TinydbItem data
+ * @param array $tinydbItem TinydbItem data
  * @return string output html
  */
-	public function ogpMetaByTinydbItem($tinydbEntry) {
-		$ogpParams = $this->__getOgpParams($tinydbEntry);
+	public function ogpMetaByTinydbItem($tinydbItem) {
+		$ogpParams = $this->__getOgpParams($tinydbItem);
 
 		// body1からイメージリストを取り出す
 		// 最初に規定サイズ以上だった画像をogImageに採用する
-		$content = $tinydbEntry['TinydbItem']['body1'];
+		$content = $tinydbItem['TinydbItem']['body1'];
 		$ogpParams = array_merge($ogpParams, $this->__getOgImageParams($content));
 
 		// TwitterCard
@@ -272,23 +272,23 @@ class TinydbOgpHelper extends AppHelper {
 /**
  * TinydbItemデータからOGPパラメータを返す
  *
- * @param array $tinydbEntry TinydbItem data
+ * @param array $tinydbItem TinydbItem data
  * @return array
  */
-	private function __getOgpParams($tinydbEntry) {
+	private function __getOgpParams($tinydbItem) {
 		$ogpParams = [];
-		$ogpParams['og:title'] = $tinydbEntry['TinydbItem']['title'];
+		$ogpParams['og:title'] = $tinydbItem['TinydbItem']['title'];
 		$contentUrl = FULL_BASE_URL . $this->NetCommonsHtml->url(
 				array(
 					'action' => 'view',
 					'frame_id' => Current::read('Frame.id'),
-					'key' => $tinydbEntry['TinydbItem']['key'],
+					'key' => $tinydbItem['TinydbItem']['key'],
 				)
 			);
 		$ogpParams['og:url'] = $contentUrl;
 		// og:descriptionは90文字程度
 		$ogpParams['og:description'] = $this->Text->truncate(
-			strip_tags($tinydbEntry['TinydbItem']['body1']),
+			strip_tags($tinydbItem['TinydbItem']['body1']),
 			$this->__descriptionLength
 		);
 		return $ogpParams;

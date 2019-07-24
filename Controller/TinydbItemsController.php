@@ -38,8 +38,8 @@ class TinydbItemsController extends TinydbAppController {
 		'Likes.Like',
 		'ContentComments.ContentComment' => array(
 			'viewVarsKey' => array(
-				'contentKey' => 'tinydbEntry.TinydbItem.key',
-				'contentTitleForMail' => 'tinydbEntry.TinydbItem.title',
+				'contentKey' => 'tinydbItem.TinydbItem.key',
+				'contentTitleForMail' => 'tinydbItem.TinydbItem.title',
 				'useComment' => 'tinydbSetting.use_comment',
 				'useCommentApproval' => 'tinydbSetting.use_comment_approval'
 			)
@@ -76,7 +76,7 @@ class TinydbItemsController extends TinydbAppController {
 		'Categories.Categories',
 		'ContentComments.ContentComments' => array(
 			'viewVarsKey' => array(
-				'contentKey' => 'tinydbEntry.TinydbItem.key',
+				'contentKey' => 'tinydbItem.TinydbItem.key',
 				'useComment' => 'tinydbSetting.use_comment'
 			),
 			'allow' => array('view')
@@ -165,7 +165,7 @@ class TinydbItemsController extends TinydbAppController {
 		$this->set('filterDropDownLabel', '----');
 
 		$conditions = array(
-			'Tag.id' => $tagId // これを有効にするにはentry_tag_linkもJOINして検索か。
+			'Tag.id' => $tagId // これを有効にするにはitem_tag_linkもJOINして検索か。
 		);
 
 		$this->_list($conditions);
@@ -189,7 +189,7 @@ class TinydbItemsController extends TinydbAppController {
 		}
 		list($year, $month) = explode('-', $this->_filter['yearMonth']);
 		if (is_numeric($year) && $month >= 1 && $month <= 12) {
-			$this->set('listTitle', __d('tinydb', '%d-%d Tinydb Entry List', $year, $month));
+			$this->set('listTitle', __d('tinydb', '%d-%d Tinydb Item List', $year, $month));
 			$this->set('filterDropDownLabel', __d('tinydb', '%d-%d', $year, $month));
 
 			$first = $this->_filter['yearMonth'] . '-1';
@@ -293,16 +293,16 @@ class TinydbItemsController extends TinydbAppController {
 		);
 		$this->TinydbItem->recursive = 0;
 		$this->TinydbItem->Behaviors->load('ContentComments.ContentComment');
-		$tinydbEntry = $this->TinydbItem->find('first', $options);
+		$tinydbItem = $this->TinydbItem->find('first', $options);
 		$this->TinydbItem->Behaviors->unload('ContentComments.ContentComment');
-		if ($tinydbEntry) {
-			$this->set('tinydbEntry', $tinydbEntry);
+		if ($tinydbItem) {
+			$this->set('tinydbItem', $tinydbItem);
 
 			//新着データを既読にする
-			$this->TinydbItem->saveTopicUserStatus($tinydbEntry);
+			$this->TinydbItem->saveTopicUserStatus($tinydbItem);
 
 			// tag取得
-			//$tinydbTags = $this->TinydbTag->getTagsByEntryId($tinydbEntry['TinydbItem']['id']);
+			//$tinydbTags = $this->TinydbTag->getTagsByItemId($tinydbItem['TinydbItem']['id']);
 			//$this->set('tinydbTags', $tinydbTags);
 
 			// コメントを利用する
@@ -310,9 +310,9 @@ class TinydbItemsController extends TinydbAppController {
 				if ($this->request->is('post')) {
 					// コメントする
 
-					$tinydbEntryKey = $tinydbEntry['TinydbItem']['key'];
+					$tinydbItemKey = $tinydbItem['TinydbItem']['key'];
 					$useCommentApproval = $this->_tinydbSetting['TinydbSetting']['use_comment_approval'];
-					if (!$this->ContentComments->comment('tinydb', $tinydbEntryKey,
+					if (!$this->ContentComments->comment('tinydb', $tinydbItemKey,
 						$useCommentApproval)) {
 						return $this->throwBadRequest();
 					}

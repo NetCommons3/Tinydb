@@ -21,7 +21,7 @@ msgstr ""
 #: Tinydb/Controller/TinydbItemsController.php:129
 #: Tinydb/Test/Case/Controller/TinydbItemsController/IndexTest.php:110
 #: Tinydb/View/TinydbItems/index.ctp:33
-#: Tinydb/View/Elements/entry_meta_info.ctp:11
+#: Tinydb/View/Elements/item_meta_info.ctp:11
 msgid "Category"
 msgstr ""
 
@@ -31,7 +31,7 @@ msgid "Tag"
 msgstr ""
 
 #: Tinydb/Controller/TinydbItemsController.php:178
-msgid "%d-%d Tinydb Entry List"
+msgid "%d-%d Tinydb Item List"
 msgstr ""
 
 #: Tinydb/Controller/TinydbItemsController.php:179
@@ -76,11 +76,11 @@ msgstr ""
 
 #: Tinydb/Test/Case/Controller/TinydbItemsController/IndexTest.php:133;167;201
 #: Tinydb/View/TinydbItems/index.ctp:78
-msgid "Add entry"
+msgid "Add item"
 msgstr ""
 
-#: Tinydb/Test/Case/View/Elements/EntryMetaInfoTest.php:68
-#: Tinydb/View/Elements/entry_meta_info.ctp:4
+#: Tinydb/Test/Case/View/Elements/ItemMetaInfoTest.php:68
+#: Tinydb/View/Elements/item_meta_info.ctp:4
 msgid "posted : %s"
 msgstr ""
 

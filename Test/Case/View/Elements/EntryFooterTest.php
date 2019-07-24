@@ -1,6 +1,6 @@
 <?php
 /**
- * View/Elements/entry_footerのテスト
+ * View/Elements/item_footerのテスト
  *
  * @author Noriko Arai <arai@nii.ac.jp>
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
@@ -12,12 +12,12 @@
 App::uses('NetCommonsControllerTestCase', 'NetCommons.TestSuite');
 
 /**
- * View/Elements/entry_footerのテスト
+ * View/Elements/item_footerのテスト
  *
  * @author Ryuji AMANO <ryuji@ryus.co.jp>
- * @package NetCommons\Tinydb\Test\Case\View\Elements\EntryFooter
+ * @package NetCommons\Tinydb\Test\Case\View\Elements\ItemFooter
  */
-class TinydbViewElementsEntryFooterTest extends NetCommonsControllerTestCase {
+class TinydbViewElementsItemFooterTest extends NetCommonsControllerTestCase {
 
 /**
  * Fixtures
@@ -47,13 +47,13 @@ class TinydbViewElementsEntryFooterTest extends NetCommonsControllerTestCase {
 		//テストプラグインのロード
 		NetCommonsCakeTestCase::loadTestPlugin($this, 'Tinydb', 'TestTinydb');
 		//テストコントローラ生成
-		$this->generateNc('TestTinydb.TestViewElementsEntryFooter',
+		$this->generateNc('TestTinydb.TestViewElementsItemFooter',
 			[
 				'helpers' => [
 					'ContentComments.ContentComment' => array(
 						'viewVarsKey' => array(
-							'contentKey' => 'tinydbEntry.TinydbItem.key',
-							'contentTitleForMail' => 'tinydbEntry.TinydbItem.title',
+							'contentKey' => 'tinydbItem.TinydbItem.key',
+							'contentTitleForMail' => 'tinydbItem.TinydbItem.title',
 							'useComment' => 'tinydbSetting.use_comment',
 							'useCommentApproval' => 'tinydbSetting.use_comment_approval'
 						)
@@ -64,17 +64,17 @@ class TinydbViewElementsEntryFooterTest extends NetCommonsControllerTestCase {
 	}
 
 /**
- * View/Elements/entry_footerのテスト
+ * View/Elements/item_footerのテスト
  *
  * @return void
  */
-	public function testEntryFooter() {
+	public function testItemFooter() {
 		//テスト実行
-		$this->_testGetAction('/test_tinydb/test_view_elements_entry_footer/entry_footer',
+		$this->_testGetAction('/test_tinydb/test_view_elements_item_footer/item_footer',
 				array('method' => 'assertNotEmpty'), null, 'view');
 
 		//チェック
-		$pattern = '/' . preg_quote('View/Elements/entry_footer', '/') . '/';
+		$pattern = '/' . preg_quote('View/Elements/item_footer', '/') . '/';
 		$this->assertRegExp($pattern, $this->view);
 
 		// use sns
@@ -96,11 +96,11 @@ class TinydbViewElementsEntryFooterTest extends NetCommonsControllerTestCase {
  */
 	public function testNotUseSns() {
 		//テスト実行
-		$this->_testGetAction('/test_tinydb/test_view_elements_entry_footer/not_use_sns',
+		$this->_testGetAction('/test_tinydb/test_view_elements_item_footer/not_use_sns',
 			array('method' => 'assertNotEmpty'), null, 'view');
 
 		//チェック
-		$pattern = '/' . preg_quote('View/Elements/entry_footer', '/') . '/';
+		$pattern = '/' . preg_quote('View/Elements/item_footer', '/') . '/';
 		$this->assertRegExp($pattern, $this->view);
 
 		// use sns
@@ -122,11 +122,11 @@ class TinydbViewElementsEntryFooterTest extends NetCommonsControllerTestCase {
  */
 	public function testNotIndex() {
 		//テスト実行
-		$this->_testGetAction('/test_tinydb/test_view_elements_entry_footer/not_index',
+		$this->_testGetAction('/test_tinydb/test_view_elements_item_footer/not_index',
 			array('method' => 'assertNotEmpty'), null, 'view');
 
 		//チェック
-		$pattern = '/' . preg_quote('View/Elements/entry_footer', '/') . '/';
+		$pattern = '/' . preg_quote('View/Elements/item_footer', '/') . '/';
 		$this->assertRegExp($pattern, $this->view);
 
 		// use sns

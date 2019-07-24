@@ -15,16 +15,16 @@ NetCommonsApp.controller('Tinydb',
 
         $scope.init = function(data) {
           if (data.TinydbItem) {
-            $scope.tinydbEntry = data.TinydbItem;
-            if ($scope.tinydbEntry.body2 !== null) {
-              if ($scope.tinydbEntry.body2.length > 0) {
+            $scope.tinydbItem = data.TinydbItem;
+            if ($scope.tinydbItem.body2 !== null) {
+              if ($scope.tinydbItem.body2.length > 0) {
                 $scope.writeBody2 = true;
               }
             }
           }
         };
 
-        $scope.tinydbEntry = {
+        $scope.tinydbItem = {
           body1: '',
           body2: '',
           publish_start: ''

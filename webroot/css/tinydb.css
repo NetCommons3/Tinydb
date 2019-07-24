@@ -3,44 +3,44 @@
     margin-bottom: 10px;
 }
 
-.tinydb_entry {
+.tinydb_item {
     /* @see NetCommons/webroot/css/style.css
 	.frame.nc-content-list article h2のmargin-topとあわせた*/
     padding-top: 16px;
 }
-.tinydb_entry:first-child {
+.tinydb_item:first-child {
     padding-top: 0px;
 }
 
-.tinydb_entry_title {
+.tinydb_item_title {
     /*margin-top: 0px;*/
     /*margin-bottom: 20px;*/
 
 }
 
-.tinydb_entry_meta {
+.tinydb_item_meta {
     font-size: small;
     color: #999;
     margin-bottom: 20px;
 }
 
 /* 一覧 */
-.tinydb_entry_status {
+.tinydb_item_status {
     /*text-align: right;*/
     /*float:right;*/
 }
 
-.tinydb_entry_body1 {
+.tinydb_item_body1 {
     margin-bottom: 20px;
 }
 
-.tinydb_entry_reaction {
+.tinydb_item_reaction {
     margin-top: 20px;
     font-size: small;
     margin-bottom: 20px;
 }
 
-.tinydb_entry_reaction div.pull-left{
+.tinydb_item_reaction div.pull-left{
     margin-right: 10px;
 }
 /*.tinydb__content-comment-count{*/

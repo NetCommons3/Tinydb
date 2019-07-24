@@ -34,8 +34,8 @@ class TestViewElementsTinydbItemsEditLinkController extends AppController {
 	public function edit_link() {
 		$this->autoRender = true;
 
-		$tinydbEntry['TinydbItem'] = (new TinydbItemFixture())->records[0];
-		$this->set('tinydbEntry', $tinydbEntry);
+		$tinydbItem['TinydbItem'] = (new TinydbItemFixture())->records[0];
+		$this->set('tinydbItem', $tinydbItem);
 	}
 
 }

@@ -271,10 +271,10 @@ class Tinydb extends TinydbAppModel {
 			}
 
 			$this->TinydbItem->blockKey = $data['Block']['key'];
-			$tinydbEntryConditions = array(
+			$tinydbItemConditions = array(
 				$this->TinydbItem->alias . '.tinydb_key' => $data['Tinydb']['key']
 			);
-			if (! $this->TinydbItem->deleteAll($tinydbEntryConditions, false, true)) {
+			if (! $this->TinydbItem->deleteAll($tinydbItemConditions, false, true)) {
 				throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
 			}
 

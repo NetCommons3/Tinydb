@@ -1,6 +1,6 @@
 <?php echo $this->NetCommonsHtml->script([
 	'/tinydb/js/tinydb.js',
-	'/tinydb/js/tinydb_entry_edit.js',
+	'/tinydb/js/tinydb_item_edit.js',
 	'/tags/js/tags.js',
 ]); ?>
 <?php

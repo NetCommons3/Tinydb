@@ -48,7 +48,7 @@ class TinydbOgpConvertFullUrlTest extends NetCommonsHelperTestCase {
 			'plugin' => 'tinydb',
 			'controller' => 'tinydb_items',
 			'action' => 'view',
-			'key' => 'entry_1'
+			'key' => 'item_1'
 		);
 		//Helperロード
 		$this->loadHelper('Tinydb.TinydbOgp', $viewVars, $requestData, $params);
@@ -57,8 +57,8 @@ class TinydbOgpConvertFullUrlTest extends NetCommonsHelperTestCase {
 			->setMethods(['url'])
 			->getMock();
 		$map = [
-			['/tinydb/tinydb_items/view/entry_1'],
-			//[null, [], FULL_BASE_URL . '/tinydb/tinydb_items/view/entry_1'],
+			['/tinydb/tinydb_items/view/item_1'],
+			//[null, [], FULL_BASE_URL . '/tinydb/tinydb_items/view/item_1'],
 			['/tinydb/tinydb_items/view/../foo/bar.jpg', true, FULL_BASE_URL . '/tinydb/tinydb_items/view/../foo/bar.jpg']
 		];
 
