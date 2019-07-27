@@ -11,7 +11,7 @@
 ?>
 
 <div class="inline-block">
-	<?php echo sprintf(__d('net_commons', 'Delete all data associated with the %s.'), __d('tinydb', 'Tinydb')); ?>
+	<?php echo sprintf(__tinydbd('net_commons', 'Delete all data associated with the %s.'), __tinydbd('tinydb', 'Tinydb')); ?>
 </div>
 <?php echo $this->Form->hidden('Block.id', array(
 		'value' => isset($block['id']) ? $block['id'] : null,
@@ -22,8 +22,8 @@
 <?php echo $this->Form->hidden('Tinydb.key', array(
 		'value' => isset($tinydb['key']) ? $tinydb['key'] : null,
 	)); ?>
-<?php echo $this->Form->button('<span class="glyphicon glyphicon-trash"> </span> ' . __d('net_commons', 'Delete'), array(
+<?php echo $this->Form->button('<span class="glyphicon glyphicon-trash"> </span> ' . __tinydbd('net_commons', 'Delete'), array(
 		'name' => 'delete',
 		'class' => 'btn btn-danger pull-right',
-		'onclick' => 'return confirm(\'' . sprintf(__d('net_commons', 'Deleting the %s. Are you sure to proceed?'), __d('tinydb', 'Tinydb')) . '\')'
+		'onclick' => 'return confirm(\'' . sprintf(__tinydbd('net_commons', 'Deleting the %s. Are you sure to proceed?'), __tinydbd('tinydb', 'Tinydb')) . '\')'
 	));

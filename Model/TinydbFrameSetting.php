@@ -57,19 +57,19 @@ class TinydbFrameSetting extends TinydbAppModel {
 			'frame_key' => array(
 				'notBlank' => array(
 					'rule' => array('notBlank'),
-					'message' => __d('net_commons', 'Invalid request.'),
+					'message' => __tinydbd('net_commons', 'Invalid request.'),
 					'required' => true,
 				)
 			),
 			'articles_per_page' => array(
 				'notBlank' => array(
 					'rule' => array('notBlank'),
-					'message' => __d('net_commons', 'Invalid request.'),
+					'message' => __tinydbd('net_commons', 'Invalid request.'),
 					'required' => true,
 				),
 				'numeric' => array(
 					'rule' => array('numeric'),
-					'message' => __d('net_commons', 'Invalid request.'),
+					'message' => __tinydbd('net_commons', 'Invalid request.'),
 					'required' => true,
 				),
 
@@ -77,7 +77,7 @@ class TinydbFrameSetting extends TinydbAppModel {
 			//'comments_per_page' => array(
 			//	'number' => array(
 			//		'rule' => array('notBlank'),
-			//		'message' => __d('net_commons', 'Invalid request.'),
+			//		'message' => __tinydbd('net_commons', 'Invalid request.'),
 			//		'required' => true,
 			//	)
 			//),
@@ -135,7 +135,7 @@ class TinydbFrameSetting extends TinydbAppModel {
 		try {
 			//登録処理
 			if (! $this->save(null, false)) {
-				throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+				throw new InternalErrorException(__tinydbd('net_commons', 'Internal Server Error'));
 			}
 			//トランザクションCommit
 			$this->commit();

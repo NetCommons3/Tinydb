@@ -111,7 +111,22 @@ class TinydbItem extends TinydbAppModel {
 		),
 	);
 
-/**
+	public function __construct($id = false, $table = null, $ds = null) {
+		$dbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
+		$pluginName = $dbType;
+		$modelName = $dbType . 'Item';
+		$dbModel = ClassRegistry::init($pluginName . '.' . $modelName, true);
+		if ($dbModel) {
+			$this->hasOne[$modelName] = [
+				'className' => $pluginName . '.' . $modelName
+			];
+			$this->$modelName = $dbModel;
+		}
+		parent::__construct($id, $table, $ds);
+
+	}
+
+	/**
  * Called before each find operation. Return false if you want to halt the find
  * call, otherwise return the (modified) query data.
  *
@@ -175,7 +190,7 @@ class TinydbItem extends TinydbAppModel {
 			'title' => array(
 				'notBlank' => [
 					'rule' => array('notBlank'),
-					'message' => sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Title')),
+					'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Title')),
 					//'allowEmpty' => false,
 					'required' => true,
 					//'last' => false, // Stop validation after this rule
@@ -185,7 +200,7 @@ class TinydbItem extends TinydbAppModel {
 			'body1' => array(
 				'notBlank' => [
 					'rule' => array('notBlank'),
-					'message' => sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Body1')),
+					'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Body1')),
 					//'allowEmpty' => false,
 					'required' => true,
 					//'last' => false, // Stop validation after this rule
@@ -195,8 +210,8 @@ class TinydbItem extends TinydbAppModel {
 			'publish_start' => array(
 				'notBlank' => [
 					'rule' => array('notBlank'),
-					'message' => sprintf(__d('net_commons', 'Please input %s.'),
-						__d('tinydb', 'Published datetime')
+					'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'),
+						__tinydbd('tinydb', 'Published datetime')
 					),
 					//'allowEmpty' => false,
 					'required' => true,
@@ -205,7 +220,7 @@ class TinydbItem extends TinydbAppModel {
 				],
 				'datetime' => [
 					'rule' => array('datetime'),
-					'message' => __d('net_commons', 'Invalid request.'),
+					'message' => __tinydbd('net_commons', 'Invalid request.'),
 				],
 			),
 			'category_id' => array(
@@ -401,15 +416,24 @@ class TinydbItem extends TinydbAppModel {
 			if (!$this->validates($data)) {
 				return false;
 			}
-			$savedData = $this->save($data, false);
+			$savedData = $this->save($data, ['validate' => false]);
 			if (! $savedData) {
 				//このsaveで失敗するならvalidate以外なので例外なげる
-				throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+				throw new InternalErrorException(__tinydbd('net_commons', 'Internal Server Error'));
 			}
 
 			//多言語化の処理
 			$this->set($savedData);
 			$this->saveM17nData();
+
+			// dbType別の保存
+			// TODO バリデート
+			$dbTypeModelName = key($this->hasOne ?? []);
+			if ($dbTypeModelName) {
+				$data[$dbTypeModelName]['tinydb_item_id'] = $this->id;
+				// TODO エラー処理
+				$this->$dbTypeModelName->save($data);
+			}
 
 			$this->commit();
 
@@ -436,7 +460,7 @@ class TinydbItem extends TinydbAppModel {
 			if ($result = $this->deleteAll($conditions, true, true)) {
 				$this->commit();
 			} else {
-				throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+				throw new InternalErrorException(__tinydbd('net_commons', 'Internal Server Error'));
 			}
 		} catch (Exception $e) {
 			$this->rollback($e);

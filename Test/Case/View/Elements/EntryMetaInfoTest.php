@@ -65,7 +65,7 @@ class TinydbViewElementsItemMetaInfoTest extends NetCommonsControllerTestCase {
 
 		// 掲載日時
 		$this->assertContains(
-			__d('tinydb', 'posted : %s', $this->controller->View->Date->dateFormat('2016-01-01 00:00:00')),
+			__tinydbd('tinydb', 'posted : %s', $this->controller->View->Date->dateFormat('2016-01-01 00:00:00')),
 			$this->view
 		);
 		// 投稿者リンク

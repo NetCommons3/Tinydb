@@ -75,26 +75,26 @@ class TinydbItemValidateTest extends NetCommonsValidateTest {
 		return array(
 			// タイトル無し
 			array('data' => $data, 'field' => 'title', 'value' => '',
-				'message' => sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Title'))),
+				'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Title'))),
 			// 本文1無し
 			array('data' => $data, 'field' => 'body1', 'value' => '',
-				'message' => sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Body1'))),
+				'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Body1'))),
 			// publish_start 不正な年月日時分秒
 			array('data' => $data, 'field' => 'publish_start', 'value' => '',
-				sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Published datetime'))),
+				sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Published datetime'))),
 			array('data' => $data, 'field' => 'publish_start', 'value' => '2016-02-30 00:00:00',
-				'message' => __d('net_commons', 'Invalid request.')),
+				'message' => __tinydbd('net_commons', 'Invalid request.')),
 			// publish_start 年月日時分秒になってない
 			array('data' => $data, 'field' => 'publish_start', 'value' => 'Random string',
-				'message' => __d('net_commons', 'Invalid request.')),
+				'message' => __tinydbd('net_commons', 'Invalid request.')),
 
 			// category_id CategoryBehavior
 			//array('data' => $data, 'field' => 'category_id', 'value' => '100',
-			//	'message' => __d('net_commons', 'Invalid request.')),
+			//	'message' => __tinydbd('net_commons', 'Invalid request.')),
 
 			// status 存在しないステータス
 			//array('data' => $data, 'field' => 'status', 'value' => '10', // WorkflowBehavior
-			//	'message' => __d('net_commons', 'Invalid request.')),
+			//	'message' => __tinydbd('net_commons', 'Invalid request.')),
 		);
 	}
 

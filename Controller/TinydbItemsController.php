@@ -116,7 +116,7 @@ class TinydbItemsController extends TinydbAppController {
 
 		$this->_prepare();
 		$this->set('listTitle', $this->_tinydbTitle);
-		$this->set('filterDropDownLabel', __d('tinydb', 'All Entries'));
+		$this->set('filterDropDownLabel', __tinydbd('tinydb', 'All Entries'));
 
 		$conditions = array();
 		$this->_filter['categoryId'] = isset($this->params['named']['category_id'])
@@ -135,7 +135,7 @@ class TinydbItemsController extends TinydbAppController {
 				return $this->throwBadRequest();
 			}
 			$this->set(
-				'listTitle', __d('tinydb', 'Category') . ':' . $category['CategoriesLanguage']['name']
+				'listTitle', __tinydbd('tinydb', 'Category') . ':' . $category['CategoriesLanguage']['name']
 			);
 			$this->set('filterDropDownLabel', $category['CategoriesLanguage']['name']);
 		}
@@ -159,9 +159,9 @@ class TinydbItemsController extends TinydbAppController {
 		// カテゴリ名をタイトルに
 		$tag = $this->TinydbItem->getTagByTagId($tagId);
 		if (!$tag) {
-			throw new NotFoundException(__d('tags', 'Tag not found'));
+			throw new NotFoundException(__tinydbd('tags', 'Tag not found'));
 		}
-		$this->set('listTitle', __d('tinydb', 'Tag') . ':' . $tag['Tag']['name']);
+		$this->set('listTitle', __tinydbd('tinydb', 'Tag') . ':' . $tag['Tag']['name']);
 		$this->set('filterDropDownLabel', '----');
 
 		$conditions = array(
@@ -189,8 +189,8 @@ class TinydbItemsController extends TinydbAppController {
 		}
 		list($year, $month) = explode('-', $this->_filter['yearMonth']);
 		if (is_numeric($year) && $month >= 1 && $month <= 12) {
-			$this->set('listTitle', __d('tinydb', '%d-%d Tinydb Item List', $year, $month));
-			$this->set('filterDropDownLabel', __d('tinydb', '%d-%d', $year, $month));
+			$this->set('listTitle', __tinydbd('tinydb', '%d-%d Tinydb Item List', $year, $month));
+			$this->set('filterDropDownLabel', __tinydbd('tinydb', '%d-%d', $year, $month));
 
 			$first = $this->_filter['yearMonth'] . '-1';
 			$last = date('Y-m-t', strtotime($first));
@@ -338,7 +338,7 @@ class TinydbItemsController extends TinydbAppController {
 		);
 		foreach ($yearMonthCount as $yearMonth => $count) {
 			list($year, $month) = explode('-', $yearMonth);
-			$options[$yearMonth] = __d('tinydb', '%d-%d (%s)', $year, $month, $count);
+			$options[$yearMonth] = __tinydbd('tinydb', '%d-%d (%s)', $year, $month, $count);
 		}
 		$this->set('yearMonthOptions', $options);
 	}

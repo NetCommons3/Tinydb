@@ -26,24 +26,24 @@
 				'Frame.block_id'
 			); ?>
 			<?php echo $this->BlockIndex->tableHeader(
-				'BlocksLanguage.name', __d('tinydb', 'Tinydb name'),
+				'BlocksLanguage.name', __tinydbd('tinydb', 'Tinydb name'),
 				array('sort' => true, 'editUrl' => true)
 			); ?>
 			<?php echo $this->BlockIndex->tableHeader(
-				'Block.content_count', __d('net_commons', 'Number'),
+				'Block.content_count', __tinydbd('net_commons', 'Number'),
 				array('sort' => true, 'type' => 'numeric')
 			); ?>
 			<?php
 			echo $this->BlockIndex->tableHeader(
-				'Block.public_type', __d('blocks', 'Publishing setting'),
+				'Block.public_type', __tinydbd('blocks', 'Publishing setting'),
 				array('sort' => true)
 			); ?>
 			<?php echo $this->BlockIndex->tableHeader(
-				'TrackableUpdater.handlename', __d('net_commons', 'Modified user'),
+				'TrackableUpdater.handlename', __tinydbd('net_commons', 'Modified user'),
 				array('sort' => true, 'type' => 'handle')
 			); ?>
 			<?php echo $this->BlockIndex->tableHeader(
-				'Block.modified', __d('net_commons', 'Modified datetime'),
+				'Block.modified', __tinydbd('net_commons', 'Modified datetime'),
 				array('sort' => true, 'type' => 'datetime')
 			); ?>
 		</tr>

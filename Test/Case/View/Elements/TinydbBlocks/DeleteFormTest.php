@@ -61,7 +61,7 @@ class TinydbViewElementsTinydbBlocksDeleteFormTest extends NetCommonsControllerT
 		$pattern = '/' . preg_quote('View/Elements/TinydbBlocks/delete_form', '/') . '/';
 		$this->assertRegExp($pattern, $this->view);
 
-		$this->assertTextContains(sprintf(__d('net_commons', 'Delete all data associated with the %s.'), __d('tinydb', 'Tinydb')), $this->view);
+		$this->assertTextContains(sprintf(__tinydbd('net_commons', 'Delete all data associated with the %s.'), __tinydbd('tinydb', 'Tinydb')), $this->view);
 
 		$this->assertInput('input', 'data[Block][id]', 10, $this->view);
 		$this->assertInput('input', 'data[Block][key]', 'block_key_10', $this->view);

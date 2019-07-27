@@ -17,16 +17,16 @@
 <?php echo $this->NetCommonsForm->hidden('TinydbFrameSetting.frame_key'); ?>
 
 <?php echo $this->DisplayNumber->select('TinydbFrameSetting.articles_per_page', array(
-	'label' => __d('net_commons', 'Display the number of each page'),
+	'label' => __tinydbd('net_commons', 'Display the number of each page'),
 	'unit' => array(
-		'single' => __d('tinydb', '%s article'),
-		'multiple' => __d('tinydb', '%s articles')
+		'single' => __tinydbd('tinydb', '%s article'),
+		'multiple' => __tinydbd('tinydb', '%s articles')
 	),
 )); ?>
 <?php //echo $this->DisplayNumber->select('TinydbFrameSetting.comments_per_page', array(
-//	'label' => __d('tinydb', 'Show comments per page'),
+//	'label' => __tinydbd('tinydb', 'Show comments per page'),
 //	'unit' => array(
-//		'single' => __d('tinydb', '%s article'),
-//		'multiple' => __d('tinydb', '%s articles')
+//		'single' => __tinydbd('tinydb', '%s article'),
+//		'multiple' => __tinydbd('tinydb', '%s articles')
 //	),
 //));

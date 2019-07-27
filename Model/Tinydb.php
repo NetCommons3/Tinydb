@@ -88,7 +88,7 @@ class Tinydb extends TinydbAppModel {
 			//'block_id' => array(
 			//	'numeric' => array(
 			//		'rule' => array('numeric'),
-			//		'message' => __d('net_commons', 'Invalid request.'),
+			//		'message' => __tinydbd('net_commons', 'Invalid request.'),
 			//		//'allowEmpty' => false,
 			//		//'required' => true,
 			//	)
@@ -96,7 +96,7 @@ class Tinydb extends TinydbAppModel {
 			'key' => array(
 				'notBlank' => array(
 					'rule' => array('notBlank'),
-					'message' => __d('net_commons', 'Invalid request.'),
+					'message' => __tinydbd('net_commons', 'Invalid request.'),
 					'allowEmpty' => false,
 					'required' => true,
 					'on' => 'update', // Limit validation to 'create' or 'update' operations
@@ -108,7 +108,7 @@ class Tinydb extends TinydbAppModel {
 			'name' => array(
 				'notBlank' => array(
 					'rule' => array('notBlank'),
-					'message' => sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Tinydb name')),
+					'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Tinydb name')),
 					'required' => true
 				),
 			),
@@ -160,7 +160,7 @@ class Tinydb extends TinydbAppModel {
 		if (isset($this->TinydbFrameSetting->data['TinydbFrameSetting'])
 			&& ! $this->TinydbFrameSetting->data['TinydbFrameSetting']['id']) {
 			if (! $this->TinydbFrameSetting->save(null, false)) {
-				throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+				throw new InternalErrorException(__tinydbd('net_commons', 'Internal Server Error'));
 			}
 		}
 
@@ -177,7 +177,7 @@ class Tinydb extends TinydbAppModel {
 
 		$tinydb = $this->createAll(array(
 			'Tinydb' => array(
-				'name' => __d('tinydb', 'New tinydb %s', date('YmdHis')),
+				'name' => __tinydbd('tinydb', 'New tinydb %s', date('YmdHis')),
 			),
 			'Block' => array(
 				'room_id' => Current::read('Room.id'),
@@ -235,7 +235,7 @@ class Tinydb extends TinydbAppModel {
 		try {
 			//登録処理
 			if (! $this->save(null, false)) {
-				throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+				throw new InternalErrorException(__tinydbd('net_commons', 'Internal Server Error'));
 			}
 			//トランザクションCommit
 			$this->commit();
@@ -267,7 +267,7 @@ class Tinydb extends TinydbAppModel {
 		try {
 			$conditions = array($this->alias . '.key' => $data['Tinydb']['key']);
 			if (! $this->deleteAll($conditions, false, false)) {
-				throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+				throw new InternalErrorException(__tinydbd('net_commons', 'Internal Server Error'));
 			}
 
 			$this->TinydbItem->blockKey = $data['Block']['key'];
@@ -275,7 +275,7 @@ class Tinydb extends TinydbAppModel {
 				$this->TinydbItem->alias . '.tinydb_key' => $data['Tinydb']['key']
 			);
 			if (! $this->TinydbItem->deleteAll($tinydbItemConditions, false, true)) {
-				throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+				throw new InternalErrorException(__tinydbd('net_commons', 'Internal Server Error'));
 			}
 
 			//Blockデータ削除

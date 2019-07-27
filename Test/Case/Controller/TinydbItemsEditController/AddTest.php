@@ -230,7 +230,7 @@ class TinydbItemsEditControllerAddTest extends WorkflowControllerAddTest {
 			'validationError' => array(
 				'field' => 'TinydbItem.title', // エラーにするフィールド指定
 				'value' => '',
-				'message' => sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Title')), //エラーメッセージ指定
+				'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Title')), //エラーメッセージ指定
 			)
 		)));
 

@@ -130,7 +130,7 @@ class TinydbBlocksControllerEditTest extends BlocksControllerEditTest {
 			'validationError' => array(
 				'field' => 'Tinydb.name', //エラーにするフィールド指定
 				'value' => '',
-				'message' => sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Tinydb name')),
+				'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Tinydb name')),
 			)
 		);
 
@@ -159,7 +159,7 @@ class TinydbBlocksControllerEditTest extends BlocksControllerEditTest {
 			'validationError' => array(
 				'field' => 'Tinydb.name', //エラーにするフィールド指定
 				'value' => '',
-				'message' => sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Tinydb name')),
+				'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Tinydb name')),
 			)
 		);
 

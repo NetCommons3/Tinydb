@@ -3,7 +3,7 @@
  * TinydbApp
  */
 App::uses('AppController', 'Controller');
-
+require_once dirname(__DIR__) . '/Lib/TinydbFunctions.php';
 /**
  * Class TinydbAppController
  *
@@ -57,9 +57,11 @@ class TinydbAppController extends AppController {
 		\Edumap\Tinydb\Lib\CurrentDbType::initByFrame(
 			Current::read('Frame')
 		);
+		$this->viewClass = 'Tinydb.Tinydb';
+
 	}
 
-/**
+	/**
  * ブロック名をブログタイトルとしてセットする
  *
  * @return void

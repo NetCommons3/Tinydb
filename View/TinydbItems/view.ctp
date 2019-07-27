@@ -45,7 +45,7 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 	<!-- Tags -->
 	<?php if (isset($tinydbItem['Tag'])) : ?>
 	<div>
-		<?php echo __d('tinydb', 'tag'); ?>
+		<?php echo __tinydbd('tinydb', 'tag'); ?>
 		<?php foreach ($tinydbItem['Tag'] as $tinydbTag): ?>
 			<?php echo $this->NetCommonsHtml->link(
 				$tinydbTag['name'],

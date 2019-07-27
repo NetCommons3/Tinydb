@@ -20,7 +20,7 @@
 		<?php echo $this->MailForm->editFrom(
 			array(
 				array(
-					'mailBodyPopoverMessage' => __d('tinydb', 'MailSetting.mail_fixed_phrase_body.popover'),
+					'mailBodyPopoverMessage' => __tinydbd('tinydb', 'MailSetting.mail_fixed_phrase_body.popover'),
 				),
 			),
 			NetCommonsUrl::backToIndexUrl('default_setting_action'),

@@ -74,9 +74,9 @@ class TinydbValidateTest extends NetCommonsValidateTest {
 
 		return array(
 			array($data, 'key', '',
-				__d('net_commons', 'Invalid request.')),
+				__tinydbd('net_commons', 'Invalid request.')),
 			array($data, 'name', '',
-				sprintf(__d('net_commons', 'Please input %s.'), __d('tinydb', 'Tinydb name'))),
+				sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Tinydb name'))),
 		);
 	}
 

@@ -26,6 +26,7 @@ $dataJson = json_encode(
 				)
 			);
 			$this->NetCommonsForm->unlockField('Tag');
+			debug(App::path('View'));
 			?>
 			<?php echo $this->NetCommonsForm->hidden('key'); ?>
 			<?php echo $this->NetCommonsForm->hidden('Frame.id', array(
@@ -44,25 +45,25 @@ $dataJson = json_encode(
 						'title',
 						'TinydbItem.title_icon',
 						array(
-							'label' => __d('tinydb', 'Title'),
+							'label' => __tinydbd('tinydb', 'Title'),
 							'required' => 'required',
 						)
 					);
 					?>
 					<?php echo $this->NetCommonsForm->wysiwyg('TinydbItem.body1', array(
-						'label' => __d('tinydb', 'Body1'),
+						'label' => __tinydbd('tinydb', 'Body1'),
 						'required' => true,
 						'rows' => 12
 					));?>
 
 					<div>
-						<label><input type="checkbox" ng-model="writeBody2"/><?php echo __d('tinydb', 'Write body2') ?>
+						<label><input type="checkbox" ng-model="writeBody2"/><?php echo __tinydbd('tinydb', 'Write body2') ?>
 						</label>
 					</div>
 
 					<div class="form-group" ng-show="writeBody2">
 					<?php echo $this->NetCommonsForm->wysiwyg('TinydbItem.body2', array(
-						'label' => __d('tinydb', 'Body2'),
+						'label' => __tinydbd('tinydb', 'Body2'),
 						'rows' => 12
 					));?>
 					</div>
@@ -72,7 +73,7 @@ $dataJson = json_encode(
 						array(
 							'type' => 'datetime',
 							'required' => 'required',
-							'label' => __d('tinydb', 'Published datetime'),
+							'label' => __tinydbd('tinydb', 'Published datetime'),
 							'childDiv' => ['class' => 'form-inline'],
 						)
 					);
@@ -110,7 +111,7 @@ $dataJson = json_encode(
 					) ?>
 					<?php echo $this->NetCommonsForm->input('key', array('type' => 'hidden')); ?>
 
-					<?php echo $this->Button->delete('', __d('net_commons', 'Deleting the %s. Are you sure to proceed?', __d('tinydb', 'TinydbItem')));?>
+					<?php echo $this->Button->delete('', __tinydbd('net_commons', 'Deleting the %s. Are you sure to proceed?', __tinydbd('tinydb', 'TinydbItem')));?>
 
 					<?php echo $this->NetCommonsForm->end() ?>
 				</div>

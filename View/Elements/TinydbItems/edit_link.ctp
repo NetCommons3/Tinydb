@@ -28,7 +28,7 @@
 		); ?>
 
 		<?php echo $this->Button->addLink(
-			__d('school_informations', 'この記事を元に追加'),
+			__tinydbd('school_informations', 'この記事を元に追加'),
 			array(
 				'controller' => 'tinydb_items_edit',
 				'action' => 'add_from_item',

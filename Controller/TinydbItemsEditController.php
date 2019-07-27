@@ -254,7 +254,7 @@ class TinydbItemsEditController extends TinydbAppController {
 		}
 
 		if ($this->TinydbItem->deleteItemByKey($key) === false) {
-			throw new InternalErrorException(__d('net_commons', 'Internal Server Error'));
+			throw new InternalErrorException(__tinydbd('net_commons', 'Internal Server Error'));
 		}
 		return $this->redirect(
 			NetCommonsUrl::actionUrl(

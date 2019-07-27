@@ -74,11 +74,11 @@ class TinydbFrameSettingValidateTest extends NetCommonsValidateTest {
 
 		return array(
 			array('data' => $data, 'field' => 'frame_key', 'value' => '',
-				'message' => __d('net_commons', 'Invalid request.')),
+				'message' => __tinydbd('net_commons', 'Invalid request.')),
 			array('data' => $data, 'field' => 'articles_per_page', 'value' => '',
-				'message' => __d('net_commons', 'Invalid request.')),
+				'message' => __tinydbd('net_commons', 'Invalid request.')),
 			array('data' => $data, 'field' => 'articles_per_page', 'value' => 'string',
-				'message' => __d('net_commons', 'Invalid request.')),
+				'message' => __tinydbd('net_commons', 'Invalid request.')),
 		);
 	}
 

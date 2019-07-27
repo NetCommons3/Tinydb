@@ -29,8 +29,8 @@ echo $this->NetCommonsHtml->script([
 								'action' => 'index',
 								'frame_id' => Current::read('Frame.id'),
 							)
-						);?>"><?php echo __d('tinydb', 'All Entries') ?></a></li>
-					<li role="presentation" class="dropdown-header"><?php echo __d('tinydb', 'Category') ?></li>
+						);?>"><?php echo __tinydbd('tinydb', 'All Entries') ?></a></li>
+					<li role="presentation" class="dropdown-header"><?php echo __tinydbd('tinydb', 'Category') ?></li>
 
 					<?php echo $this->Category->dropDownToggle(array(
 						'empty' => false,
@@ -46,7 +46,7 @@ echo $this->NetCommonsHtml->script([
 
 					<li role="presentation" class="divider"></li>
 
-					<li role="presentation" class="dropdown-header"><?php echo __d('tinydb', 'Archive')?></li>
+					<li role="presentation" class="dropdown-header"><?php echo __tinydbd('tinydb', 'Archive')?></li>
 					<?php foreach($yearMonthOptions as $yearMonth => $label): ?>
 
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo $this->NetCommonsHtml->url(
@@ -75,7 +75,7 @@ echo $this->NetCommonsHtml->script([
 			);
 			echo $this->Button->addLink('',
 				$addUrl,
-			array('tooltip' => __d('tinydb', 'Add item')));
+			array('tooltip' => __tinydbd('tinydb', 'Add item')));
 			?>
 		</div>
 		<?php endif ?>
@@ -84,7 +84,7 @@ echo $this->NetCommonsHtml->script([
 
 	<?php if (count($tinydbEntries) == 0): ?>
 		<div class="nc-not-found">
-			<?php echo __d('net_commons', '%s is not.', __d('tinydb', 'TinydbItem')); ?>
+			<?php echo __tinydbd('net_commons', '%s is not.', __tinydbd('tinydb', 'TinydbItem')); ?>
 		</div>
 
 	<?php else : ?>
@@ -113,13 +113,13 @@ echo $this->NetCommonsHtml->script([
 					</div>
 					<?php if ($tinydbItem['TinydbItem']['body2']) : ?>
 						<div class="clearfix" ng-hide="isShowBody2">
-							<a ng-click="showBody2()"><?php echo __d('tinydb', 'Read more'); ?></a>
+							<a ng-click="showBody2()"><?php echo __tinydbd('tinydb', 'Read more'); ?></a>
 						</div>
 						<div class="clearfix" ng-show="isShowBody2">
 							<?php echo $tinydbItem['TinydbItem']['body2'] ?>
 						</div>
 						<div class="clearfix" ng-show="isShowBody2">
-							<a ng-click="hideBody2()"><?php echo __d('tinydb', 'Close'); ?></a>
+							<a ng-click="hideBody2()"><?php echo __tinydbd('tinydb', 'Close'); ?></a>
 						</div>
 					<?php endif ?>
 					<?php echo $this->element('Tinydb.item_footer', array('tinydbItem' => $tinydbItem, 'index' => true)); ?>

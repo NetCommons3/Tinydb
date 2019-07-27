@@ -123,7 +123,7 @@ class TinydbItemsControllerTagTest extends WorkflowControllerIndexTest {
 
 		//チェック
 		// タイトルに 「タグ」と表示される
-		$this->assertRegExp('/<h1.*?>' . __d('tinydb', 'Tag') . '/', $this->view);
+		$this->assertRegExp('/<h1.*?>' . __tinydbd('tinydb', 'Tag') . '/', $this->view);
 	}
 
 /**

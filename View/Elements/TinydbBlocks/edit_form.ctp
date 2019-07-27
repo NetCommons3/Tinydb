@@ -23,20 +23,20 @@
 
 <?php echo $this->NetCommonsForm->input('Tinydb.name', array(
 		'type' => 'text',
-		'label' => __d('tinydb', 'Tinydb name'),
+		'label' => __tinydbd('tinydb', 'Tinydb name'),
 		'required' => true,
 	)); ?>
 
 <?php echo $this->element('Blocks.public_type'); ?>
 
 <?php echo $this->NetCommonsForm->inlineCheckbox('TinydbSetting.use_comment', array(
-			'label' => __d('content_comments', 'Use comment')
+			'label' => __tinydbd('content_comments', 'Use comment')
 	)); ?>
 
 <?php echo $this->Like->setting('TinydbSetting.use_like', 'TinydbSetting.use_unlike');?>
 
 <?php echo $this->NetCommonsForm->inlineCheckbox('TinydbSetting.use_sns', array(
-	'label' => __d('tinydb', 'Use sns')
+	'label' => __tinydbd('tinydb', 'Use sns')
 )); ?>
 
 <?php
