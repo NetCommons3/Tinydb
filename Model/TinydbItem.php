@@ -161,6 +161,11 @@ class TinydbItem extends TinydbAppModel {
 		return parent::beforeValidate($options);
 	}
 
+	public function afterSave($created, $options = array()) {
+		$this->_triggerEvent('TinydbItem.afterSave', $created, $options, $this->data);
+		parent::afterSave($created, $options);
+	}
+
 /**
  * プラリマリキーを除いた新規レコード配列を返す
  * ex) array('ModelName' => array('filedName' => default, ...));
@@ -277,8 +282,7 @@ class TinydbItem extends TinydbAppModel {
 		$netCommonsTime = new NetCommonsTime();
 		$new['TinydbItem']['publish_start'] = $netCommonsTime->getNowDatetime();
 
-		$dbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
-		\Edumap\Tinydb\Lib\EventManager::instance()->dispatch($dbType . '.Tinydb.Model.TinydbItem.getNew', $new);
+		$this->_triggerEvent('TinydbItem.getNew', $new);
 		return $new;
 	}
 
@@ -422,18 +426,19 @@ class TinydbItem extends TinydbAppModel {
 				throw new InternalErrorException(__tinydbd('net_commons', 'Internal Server Error'));
 			}
 
-			//多言語化の処理
-			$this->set($savedData);
-			$this->saveM17nData();
-
 			// dbType別の保存
 			// TODO バリデート
 			$dbTypeModelName = key($this->hasOne ?? []);
 			if ($dbTypeModelName) {
-				$data[$dbTypeModelName]['tinydb_item_id'] = $this->id;
+				$savedData[$dbTypeModelName]['tinydb_item_id'] = $this->id;
 				// TODO エラー処理
-				$this->$dbTypeModelName->save($data);
+				$this->$dbTypeModelName->save($savedData);
 			}
+
+			//多言語化の処理
+			$this->set($savedData);
+			$this->saveM17nData();
+
 
 			$this->commit();
 

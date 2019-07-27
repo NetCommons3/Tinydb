@@ -27,5 +27,12 @@ class EventManager {
 		foreach ($this->callbacks[$event] ?? [] as $callback) {
 			call_user_func_array($callback, $args);
 		}
+
 	}
+	public function dispatchByArray(string $event, &$args) {
+		foreach ($this->callbacks[$event] ?? [] as $callback) {
+			call_user_func_array($callback, $args);
+		}
+	}
+
 }
