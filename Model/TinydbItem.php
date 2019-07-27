@@ -261,6 +261,9 @@ class TinydbItem extends TinydbAppModel {
 		$new = $this->_getNew();
 		$netCommonsTime = new NetCommonsTime();
 		$new['TinydbItem']['publish_start'] = $netCommonsTime->getNowDatetime();
+
+		$dbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
+		\Edumap\Tinydb\Lib\EventManager::instance()->dispatch($dbType . '.Tinydb.Model.TinydbItem.getNew', $new);
 		return $new;
 	}
 

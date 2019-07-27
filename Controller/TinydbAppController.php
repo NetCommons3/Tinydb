@@ -50,6 +50,15 @@ class TinydbAppController extends AppController {
 		'Tinydb.TinydbFrameSetting'
 	);
 
+	public function beforeFilter() {
+		parent::beforeFilter();
+
+		// CurrentDbType初期化
+		\Edumap\Tinydb\Lib\CurrentDbType::initByFrame(
+			Current::read('Frame')
+		);
+	}
+
 /**
  * ブロック名をブログタイトルとしてセットする
  *
