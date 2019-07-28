@@ -1,6 +1,6 @@
 <div class="clearfix tinydb_item_reaction">
 	<div class="pull-left">
-		<?php if ($tinydbSetting['use_sns']) : ?>
+		<?php if ($tinydbSetting['use_sns'] ?? false) : ?>
 
 			<?php $contentUrl = FULL_BASE_URL . $this->NetCommonsHtml->url(array(
 					'action' => 'view',

@@ -112,21 +112,11 @@ class TinydbItem extends TinydbAppModel {
 	);
 
 	public function __construct($id = false, $table = null, $ds = null) {
-		$dbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
-		$pluginName = $dbType;
-		$modelName = $dbType . 'Item';
-		$dbModel = ClassRegistry::init($pluginName . '.' . $modelName, true);
-		if ($dbModel) {
-			$this->hasOne[$modelName] = [
-				'className' => $pluginName . '.' . $modelName
-			];
-			$this->$modelName = $dbModel;
-		}
+		$this->_setUpDbType();
 		parent::__construct($id, $table, $ds);
-
 	}
 
-	/**
+/**
  * Called before each find operation. Return false if you want to halt the find
  * call, otherwise return the (modified) query data.
  *

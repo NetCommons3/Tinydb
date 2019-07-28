@@ -9,7 +9,7 @@ class CurrentDbType {
 	/**
 	 * @var self
 	 */
-	private static $self;
+	private static $selfInstance;
 
 	/**
 	 * @var string
@@ -20,8 +20,8 @@ class CurrentDbType {
 		$dbType = self::__convertDbTypeByDefaultSettingAction(
 			$frame['default_setting_action'] ?? ''
 		);
-		self::$self = new self($dbType);
-		return self::$self;
+		self::$selfInstance = new self($dbType);
+		return self::$selfInstance;
 	}
 
 	private static function __convertDbTypeByDefaultSettingAction(string $defaultSettingAction) : string  {
@@ -36,7 +36,10 @@ class CurrentDbType {
 	}
 
 	public static function instance() {
-		return self::$self;
+		//if (self::$selfInstance === null) {
+		//	throw new \LogicException('先にinitByFrame()で初期化してください');
+		//}
+		return self::$selfInstance;
 	}
 
 	public function getDbType() : string {

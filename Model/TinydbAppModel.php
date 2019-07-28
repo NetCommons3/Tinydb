@@ -14,4 +14,27 @@ class TinydbAppModel extends AppModel {
 		$fullEventName = $dbType . '.Tinydb.Model.' . $localEventName;
 		\Edumap\Tinydb\Lib\EventManager::instance()->dispatchByArray($fullEventName, $args);
 	}
+
+	protected function _setUpDbType() {
+		// Migration実行時にdbType不定になるので
+		$dbTypeInstance = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+		if ($dbTypeInstance === null) {
+			return;
+		}
+		$dbType = $dbTypeInstance->getDbType();
+		$pluginName = $dbType;
+		$modelName = str_replace('Tinydb', $dbType, get_class($this));
+		$dbModel = ClassRegistry::init($pluginName . '.' . $modelName, true);
+		if ($dbModel) {
+			$this->hasOne[$modelName] = [
+				'className' => $pluginName . '.' . $modelName,
+				'conditions' => [
+
+				]
+			];
+			$this->$modelName = $dbModel;
+		}
+	}
+
+
 }
