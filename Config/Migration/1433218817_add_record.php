@@ -44,7 +44,7 @@ class AddRecord extends NetCommonsMigration {
 				'is_translation' => true,
 				'key' => 'tinydb',
 				'namespace' => 'netcommons/tinydb',
-				'name' => 'ブログ',
+				'name' => 'Tinydb',
 				'type' => 1,
 				'default_action' => 'tinydb_items/index',
 				'default_setting_action' => 'tinydb_blocks/index',
@@ -82,29 +82,29 @@ class AddRecord extends NetCommonsMigration {
  * @return bool Should process continue
  */
 	public function before($direction) {
-		$pluginName = $this->records['Plugin'][0]['key'];
-		$this->records['PluginsRoom'] = array(
-			//サイト全体
-			array(
-				'room_id' => Space::getRoomIdRoot(Space::WHOLE_SITE_ID, 'Room'),
-				'plugin_key' => $pluginName
-			),
-			//パブリックスペース
-			array(
-				'room_id' => Space::getRoomIdRoot(Space::PUBLIC_SPACE_ID, 'Room'),
-				'plugin_key' => $pluginName
-			),
-			//プライベートスペース
-			array(
-				'room_id' => Space::getRoomIdRoot(Space::PRIVATE_SPACE_ID, 'Room'),
-				'plugin_key' => $pluginName
-			),
-			//グループスペース
-			array(
-				'room_id' => Space::getRoomIdRoot(Space::COMMUNITY_SPACE_ID, 'Room'),
-				'plugin_key' => $pluginName
-			),
-		);
+		//$pluginName = $this->records['Plugin'][0]['key'];
+		//$this->records['PluginsRoom'] = array(
+		//	//サイト全体
+		//	array(
+		//		'room_id' => Space::getRoomIdRoot(Space::WHOLE_SITE_ID, 'Room'),
+		//		'plugin_key' => $pluginName
+		//	),
+		//	//パブリックスペース
+		//	array(
+		//		'room_id' => Space::getRoomIdRoot(Space::PUBLIC_SPACE_ID, 'Room'),
+		//		'plugin_key' => $pluginName
+		//	),
+		//	//プライベートスペース
+		//	array(
+		//		'room_id' => Space::getRoomIdRoot(Space::PRIVATE_SPACE_ID, 'Room'),
+		//		'plugin_key' => $pluginName
+		//	),
+		//	//グループスペース
+		//	array(
+		//		'room_id' => Space::getRoomIdRoot(Space::COMMUNITY_SPACE_ID, 'Room'),
+		//		'plugin_key' => $pluginName
+		//	),
+		//);
 		return true;
 	}
 
