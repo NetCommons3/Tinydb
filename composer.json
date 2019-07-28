@@ -33,8 +33,8 @@
             "role": "Developer"
         },
         {
-            "name": "NetCommons Community",
-            "homepage": "http://www.netcommons.org"
+            "name": "Edumap",
+            "homepage": "https://edumap.jp"
         }
     ],
     "type": "cakephp-plugin",
