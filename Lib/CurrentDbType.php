@@ -45,4 +45,9 @@ class CurrentDbType {
 	public function getDbType() : string {
 		return $this->dbType;
 	}
+
+	public function isSingleDb() : bool {
+		// TODO 複数DB使いたいのがでてきたら、DB毎に変更できるようにする
+		return true;
+	}
 }

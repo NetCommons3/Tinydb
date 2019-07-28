@@ -98,6 +98,41 @@ class TinydbBlocksController extends TinydbAppController {
  * @return void
  */
 	public function index() {
+		$currentDbType = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+		if ($currentDbType->isSingleDb()) {
+			// シングルDBモード
+			// 既にDBがあれば、editへ
+			$tinydb = $this->Tinydb->find('first', [
+				'conditions' => [
+					'db_type' => Inflector::underscore($currentDbType->getDbType())
+				],
+				'recursive' => -1,
+			]);
+			if ($tinydb) {
+				$this->redirect(
+					[
+						'controller' => 'tinydb_blocks',
+						'action' => 'edit',
+						$tinydb['Tinydb']['block_id'],
+						'?' => [
+							'frame_id' => Current::read('Frame.id')
+						]
+					]
+				);
+				return;
+			}
+			// DBがなければ追加へ
+			$this->redirect(
+				[
+					'controller' => 'tinydb_blocks',
+					'action' => 'add',
+					'?' => [
+						'frame_id' => Current::read('Frame.id')
+					]
+				]
+			);
+			return;
+		}
 		$this->Paginator->settings = array(
 			'Tinydb' => $this->Tinydb->getBlockIndexSettings()
 		);
@@ -122,6 +157,7 @@ class TinydbBlocksController extends TinydbAppController {
 		if ($this->request->is('post')) {
 			//登録処理
 			if ($this->Tinydb->saveTinydb($this->data)) {
+				$this->NetCommons->setFlashNotification('保存しました。', ['class' => 'success']);
 				$this->redirect(NetCommonsUrl::backToIndexUrl('default_setting_action'));
 			}
 			$this->NetCommons->handleValidationError($this->Tinydb->validationErrors);
@@ -143,6 +179,7 @@ class TinydbBlocksController extends TinydbAppController {
 		if ($this->request->is('put')) {
 			//登録処理
 			if ($this->Tinydb->saveTinydb($this->data)) {
+				$this->NetCommons->setFlashNotification('保存しました。', ['class' => 'success']);
 				$this->redirect(NetCommonsUrl::backToIndexUrl('default_setting_action'));
 			}
 			$this->NetCommons->handleValidationError($this->Tinydb->validationErrors);
