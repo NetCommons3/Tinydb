@@ -54,9 +54,9 @@ class TinydbAppController extends AppController {
 		parent::beforeFilter();
 
 		// CurrentDbType初期化
-		\Edumap\Tinydb\Lib\CurrentDbType::initByFrame(
-			Current::read('Frame')
-		);
+		//\Edumap\Tinydb\Lib\CurrentDbType::initByFrame(
+		//	Current::read('Frame')
+		//);
 		$this->viewClass = 'Tinydb.Tinydb';
 
 	}
