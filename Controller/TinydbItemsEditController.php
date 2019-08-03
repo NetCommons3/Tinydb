@@ -134,7 +134,7 @@ class TinydbItemsEditController extends TinydbAppController {
 			if (($result = $this->TinydbItem->saveItem($this->request->data))) {
 				$url = NetCommonsUrl::actionUrl(
 					array(
-						'controller' => 'tinydb_items',
+						'controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items',
 						'action' => 'view',
 						'block_id' => Current::read('Block.id'),
 						'frame_id' => Current::read('Frame.id'),
@@ -203,7 +203,7 @@ class TinydbItemsEditController extends TinydbAppController {
 			if ($this->TinydbItem->saveItem($data)) {
 				$url = NetCommonsUrl::actionUrl(
 					array(
-						'controller' => 'tinydb_items',
+						'controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items',
 						'action' => 'view',
 						'frame_id' => Current::read('Frame.id'),
 						'block_id' => Current::read('Block.id'),
@@ -259,7 +259,7 @@ class TinydbItemsEditController extends TinydbAppController {
 		return $this->redirect(
 			NetCommonsUrl::actionUrl(
 				array(
-					'controller' => 'tinydb_items',
+					'controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items',
 					'action' => 'index',
 					'frame_id' => Current::read('Frame.id'),
 					'block_id' => Current::read('Block.id')
