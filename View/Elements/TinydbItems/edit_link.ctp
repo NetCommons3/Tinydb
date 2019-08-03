@@ -28,11 +28,13 @@
 		); ?>
 
 		<?php echo $this->Button->addLink(
-			__tinydbd('school_informations', 'この記事を元に追加'),
+			__tinydbd('tinydb', 'この記事を元に追加'),
 			array(
 				'controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items_edit',
 				'action' => 'add_from_item',
-				'key' => $tinydbItem['TinydbItem']['key'],
+				'?' => [
+					'from_key' => $tinydbItem['TinydbItem']['key']
+				],
 				'frame_id' => Current::read('Frame.id'),
 			),
 			array(

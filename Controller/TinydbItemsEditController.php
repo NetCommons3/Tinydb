@@ -77,7 +77,7 @@ class TinydbItemsEditController extends TinydbAppController {
  */
 	public function add_from_item() {
 		$this->set('isEdit', false);
-		$key = $this->params['key'];
+		$key = $this->request->query('from_key');
 		//  keyのis_latstを元に編集を開始
 		$this->TinydbItem->recursive = 0;
 		$tinydbItem = $this->TinydbItem->getWorkflowContents('first', array(
