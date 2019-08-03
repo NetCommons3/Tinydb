@@ -57,7 +57,7 @@ class TinydbBlocksController extends TinydbAppController {
 
 /**
  * use helpers
- *
+ * TODO 別途かきかえ
  * @var array
  */
 	public $helpers = array(
@@ -104,14 +104,15 @@ class TinydbBlocksController extends TinydbAppController {
 			// 既にDBがあれば、editへ
 			$tinydb = $this->Tinydb->find('first', [
 				'conditions' => [
-					'db_type' => Inflector::underscore($currentDbType->getDbType())
+					'Tinydb.db_type' => $currentDbType->getDbTypeKey(),
+					'Block.room_id' => Current::read('Room.id')
 				],
-				'recursive' => -1,
+				'recursive' => 0,
 			]);
 			if ($tinydb) {
 				$this->redirect(
 					[
-						'controller' => 'tinydb_blocks',
+						'controller' => $currentDbType->getDbTypeKey() . '_blocks',
 						'action' => 'edit',
 						$tinydb['Tinydb']['block_id'],
 						'?' => [
@@ -124,7 +125,7 @@ class TinydbBlocksController extends TinydbAppController {
 			// DBがなければ追加へ
 			$this->redirect(
 				[
-					'controller' => 'tinydb_blocks',
+					'controller' => $currentDbType->getDbTypeKey() . '_blocks',
 					'action' => 'add',
 					'?' => [
 						'frame_id' => Current::read('Frame.id')

@@ -51,7 +51,7 @@ class TinydbBlockRolePermissionsController extends TinydbAppController {
 
 /**
  * use helpers
- *
+ * TODO 別途書換
  * @var array
  */
 	public $helpers = array(
