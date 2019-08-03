@@ -54,14 +54,21 @@ class TinydbAppController extends AppController {
 		parent::beforeFilter();
 
 		// CurrentDbType初期化
-		//\Edumap\Tinydb\Lib\CurrentDbType::initByFrame(
-		//	Current::read('Frame')
-		//);
+		\Edumap\Tinydb\Lib\CurrentDbType::initByPlugin(
+			$this->plugin
+		);
 		$this->viewClass = 'Tinydb.Tinydb';
 
 	}
 
-	/**
+	public function beforeRender() {
+		// viewPathに含まれるプラグイン名をTinydbに変更
+		$this->viewPath = str_replace($this->plugin, 'Tinydb', $this->viewPath);
+
+		parent::beforeRender();
+	}
+
+/**
  * ブロック名をブログタイトルとしてセットする
  *
  * @return void
