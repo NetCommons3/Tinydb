@@ -9,6 +9,14 @@ App::uses('AppModel', 'Model');
  */
 class TinydbAppModel extends AppModel {
 
+	public function __construct($id = false, $table = null, $ds = null) {
+		$dbType = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+		if ($dbType !== null) {
+			$this->plugin = $dbType->getDbType();
+		}
+		parent::__construct($id, $table, $ds);
+	}
+
 	protected function _triggerEvent(string $localEventName, &...$args) {
 		$dbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
 		$fullEventName = $dbType . '.Tinydb.Model.' . $localEventName;
