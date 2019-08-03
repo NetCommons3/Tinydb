@@ -16,10 +16,8 @@ class CurrentDbType {
 	 */
 	private $dbType;
 
-	public static function initByFrame(array $frame) : self {
-		$dbType = self::__convertDbTypeByDefaultSettingAction(
-			$frame['default_setting_action'] ?? ''
-		);
+	public static function initByPlugin(string $pluginKey) : self {
+		$dbType = $pluginKey;
 		self::$selfInstance = new self($dbType);
 		return self::$selfInstance;
 	}
@@ -44,6 +42,10 @@ class CurrentDbType {
 
 	public function getDbType() : string {
 		return $this->dbType;
+	}
+
+	public function getDbTypeKey() : string {
+		return \Inflector::underscore($this->dbType);
 	}
 
 	public function isSingleDb() : bool {
