@@ -18,7 +18,7 @@
 	<div class="text-right">
 		<?php echo $this->Button->editLink('',
 			array(
-				'controller' => 'tinydb_items_edit',
+				'controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items_edit',
 				'key' => $tinydbItem['TinydbItem']['key']
 			),
 			array(
@@ -30,7 +30,7 @@
 		<?php echo $this->Button->addLink(
 			__tinydbd('school_informations', 'この記事を元に追加'),
 			array(
-				'controller' => 'tinydb_items_edit',
+				'controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items_edit',
 				'action' => 'add_from_item',
 				'key' => $tinydbItem['TinydbItem']['key'],
 				'frame_id' => Current::read('Frame.id'),

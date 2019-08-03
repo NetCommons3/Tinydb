@@ -4,7 +4,7 @@
 		<?php echo $this->NetCommonsHtml->link(
 			$tinydbItem['TinydbItem']['title'],
 			array(
-				'controller' => 'tinydb_items',
+				'controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items',
 				'action' => 'view',
 				//'frame_id' => Current::read('Frame.id'),
 				'key' => $tinydbItem['TinydbItem']['key']

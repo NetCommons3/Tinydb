@@ -69,7 +69,7 @@ echo $this->NetCommonsHtml->script([
 		<div class="pull-right">
 			<?php
 			$addUrl = array(
-				'controller' => 'tinydb_items_edit',
+				'controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items_edit',
 				'action' => 'add',
 				'frame_id' => Current::read('Frame.id')
 			);
