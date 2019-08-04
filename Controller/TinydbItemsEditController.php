@@ -98,10 +98,16 @@ class TinydbItemsEditController extends TinydbAppController {
 		unset($tinydbItem['TinydbItem']['created_user']);
 		unset($tinydbItem['TinydbItem']['modified']);
 		unset($tinydbItem['TinydbItem']['modified_user']);
+
 		unset($tinydbItem['TinydbItem']['is_latest']);
 		unset($tinydbItem['TinydbItem']['is_active']);
 		unset($tinydbItem['TinydbItem']['status']);
+
 		unset($tinydbItem['TinydbItem']['publish_start']);
+
+		// 新規デフォルトに 元Itemの値を上書き
+		$defaultItem = $this->TinydbItem->getNew();
+		$tinydbItem = Hash::merge($defaultItem, $tinydbItem);
 
 		$this->__add($tinydbItem);
 	}
