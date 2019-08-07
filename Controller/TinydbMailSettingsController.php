@@ -11,6 +11,8 @@
 
 App::uses('MailSettingsController', 'Mails.Controller');
 
+require_once dirname(__DIR__) . '/Lib/TinydbFunctions.php';
+
 /**
  * メール設定Controller
  *
@@ -26,14 +28,44 @@ class TinydbMailSettingsController extends MailSettingsController {
  */
 	public $helpers = array(
 		'Blocks.BlockRolePermissionForm',
-		'Blocks.BlockTabs' => array(
-			'mainTabs' => array(
-				'block_index',
-				//'frame_settings'
-			),
-			'blockTabs' => array('block_settings', 'mail_settings', 'role_permissions'),
-		),
 		'Mails.MailForm',
 	);
 
+/**
+ * @var array Components
+ */
+	public $components = [
+		'Tinydb.TinydbBlockTabSetting',
+	];
+
+/**
+ * beforeFilter
+ *
+ * @return void
+ */
+	public function beforeFilter() {
+		parent::beforeFilter();
+
+		// CurrentDbType初期化
+		\Edumap\Tinydb\Lib\CurrentDbType::initByPlugin(
+			$this->plugin
+		);
+		$this->viewClass = 'Tinydb.Tinydb';
+
+	}
+
+/**
+ * beforeRender
+ *
+ * - viewPathの置換
+ *
+ * @return void
+ */
+	public function beforeRender() {
+
+		// viewPathに含まれるプラグイン名をTinydbに変更
+		$this->viewPath = str_replace($this->plugin, 'Tinydb', $this->viewPath);
+
+		parent::beforeRender();
+	}
 }

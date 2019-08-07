@@ -47,24 +47,16 @@ class TinydbFrameSettingsController extends TinydbAppController {
 				'edit' => 'page_editable',
 			),
 		),
+		'Tinydb.TinydbBlockTabSetting',
+
 	);
 
 /**
  * use helpers
- * TODO 別途書換
+ *
  * @var array
  */
 	public $helpers = array(
-		'Blocks.BlockTabs' => array(
-			'mainTabs' => array(
-				'block_index' => array('url' => array('controller' => 'tinydb_blocks')),
-				'frame_settings' => array('url' => array('controller' => 'tinydb_frame_settings')),
-			),
-			'blockTabs' => array(
-				'block_settings' => array('url' => array('controller' => 'tinydb_blocks')),
-				'role_permissions' => array('url' => array('controller' => 'tinydb_block_role_permissions')),
-			),
-		),
 		'NetCommons.DisplayNumber',
 	);
 

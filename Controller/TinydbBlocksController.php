@@ -53,26 +53,27 @@ class TinydbBlocksController extends TinydbAppController {
 		),
 		'Paginator',
 		'Categories.CategoryEdit',
+		'Tinydb.TinydbBlockTabSetting',
+
 	);
 
 /**
  * use helpers
- * TODO 別途かきかえ
  * @var array
  */
 	public $helpers = array(
 		'Blocks.BlockForm',
-		'Blocks.BlockTabs' => array(
-			'mainTabs' => array(
-				'block_index' => array('url' => array('controller' => 'tinydb_blocks')),
-				'frame_settings' => array('url' => array('controller' => 'tinydb_frame_settings')),
-			),
-			'blockTabs' => array(
-				'block_settings' => array('url' => array('controller' => 'tinydb_blocks')),
-				'mail_settings',
-				'role_permissions' => array('url' => array('controller' => 'tinydb_block_role_permissions')),
-			),
-		),
+		//'Blocks.BlockTabs' => array(
+		//	'mainTabs' => array(
+		//		'block_index' => array('url' => array('controller' => 'tinydb_blocks')),
+		//		'frame_settings' => array('url' => array('controller' => 'tinydb_frame_settings')),
+		//	),
+		//	'blockTabs' => array(
+		//		'block_settings' => array('url' => array('controller' => 'tinydb_blocks')),
+		//		'mail_settings',
+		//		'role_permissions' => array('url' => array('controller' => 'tinydb_block_role_permissions')),
+		//	),
+		//),
 		'Blocks.BlockIndex',
 		//'Blocks.Block',
 		'Likes.Like',
