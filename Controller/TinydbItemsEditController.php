@@ -90,26 +90,7 @@ class TinydbItemsEditController extends TinydbAppController {
 			return $this->throwBadRequest();
 		}
 
-		// 初期化したいフィールドはunsetする
-		// 新規扱いにするのでidは削除する
-		unset($tinydbItem['TinydbItem']['id']);
-		unset($tinydbItem['TinydbItem']['key']);
-		unset($tinydbItem['TinydbItem']['created']);
-		unset($tinydbItem['TinydbItem']['created_user']);
-		unset($tinydbItem['TinydbItem']['modified']);
-		unset($tinydbItem['TinydbItem']['modified_user']);
-
-		unset($tinydbItem['TinydbItem']['is_latest']);
-		unset($tinydbItem['TinydbItem']['is_active']);
-		unset($tinydbItem['TinydbItem']['status']);
-
-		unset($tinydbItem['TinydbItem']['publish_start']);
-
-		// 新規デフォルトに 元Itemの値を上書き
-		$defaultItem = $this->TinydbItem->getNew();
-		$tinydbItem = Hash::merge($defaultItem, $tinydbItem);
-
-		$this->__add($tinydbItem);
+		$this->_addFromItem($tinydbItem);
 	}
 
 /**
@@ -272,5 +253,34 @@ class TinydbItemsEditController extends TinydbAppController {
 				)
 			)
 		);
+	}
+
+	/**
+	 * ${CARET}_addFromItem
+	 *
+	 * @param $tinydbItem
+	 * @return void
+	 */
+	protected function _addFromItem($tinydbItem) : void {
+// 初期化したいフィールドはunsetする
+		// 新規扱いにするのでidは削除する
+		unset($tinydbItem['TinydbItem']['id']);
+		unset($tinydbItem['TinydbItem']['key']);
+		unset($tinydbItem['TinydbItem']['created']);
+		unset($tinydbItem['TinydbItem']['created_user']);
+		unset($tinydbItem['TinydbItem']['modified']);
+		unset($tinydbItem['TinydbItem']['modified_user']);
+
+		unset($tinydbItem['TinydbItem']['is_latest']);
+		unset($tinydbItem['TinydbItem']['is_active']);
+		unset($tinydbItem['TinydbItem']['status']);
+
+		unset($tinydbItem['TinydbItem']['publish_start']);
+
+		// 新規デフォルトに 元Itemの値を上書き
+		$defaultItem = $this->TinydbItem->getNew();
+		$tinydbItem = Hash::merge($defaultItem, $tinydbItem);
+
+		$this->__add($tinydbItem);
 	}
 }
