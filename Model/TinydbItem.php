@@ -144,10 +144,7 @@ class TinydbItem extends TinydbAppModel {
  * @return bool
  */
 	public function beforeValidate($options = array()) {
-		$this->validate = array_merge(
-			$this->validate,
-			$this->_getValidateSpecification()
-		);
+		$this->validate = ValidateMerge::merge($this->validate, $this->_getValidateSpecification());
 		return parent::beforeValidate($options);
 	}
 
