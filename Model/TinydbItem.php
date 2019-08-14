@@ -113,6 +113,7 @@ class TinydbItem extends TinydbAppModel {
 
 	public function __construct($id = false, $table = null, $ds = null) {
 		$this->_setUpDbType();
+		$this->_triggerEvent('TinydbItem.construct', $this);
 		parent::__construct($id, $table, $ds);
 	}
 

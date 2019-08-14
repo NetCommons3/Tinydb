@@ -1,4 +1,7 @@
 <?php
+if (isset($cssList) && !empty($cssList)) {
+	echo $this->NetCommonsHtml->css($cssList);
+}
 echo $this->NetCommonsHtml->css([
 	'/tinydb/css/tinydb.css',
 	'/likes/css/style.css',
