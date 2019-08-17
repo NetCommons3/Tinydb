@@ -33,19 +33,22 @@ echo $this->NetCommonsHtml->script([
 								'frame_id' => Current::read('Frame.id'),
 							)
 						);?>"><?php echo __tinydbd('tinydb', 'All Entries') ?></a></li>
-					<li role="presentation" class="dropdown-header"><?php echo __tinydbd('tinydb', 'Category') ?></li>
 
-					<?php echo $this->Category->dropDownToggle(array(
-						'empty' => false,
-						'displayMenu' => false,
-						'url' => NetCommonsUrl::actionUrlAsArray(
-							array(
-								'action' => 'index',
-								'block_id' => Current::read('Block.id'),
-								'frame_id' => Current::read('Frame.id'),
-							)
-						),
-					)); ?>
+					<?php if ($categories):?>
+						<li role="presentation" class="dropdown-header"><?php echo __tinydbd('tinydb', 'Category') ?></li>
+
+						<?php echo $this->Category->dropDownToggle(array(
+							'empty' => false,
+							'displayMenu' => false,
+							'url' => NetCommonsUrl::actionUrlAsArray(
+								array(
+									'action' => 'index',
+									'block_id' => Current::read('Block.id'),
+									'frame_id' => Current::read('Frame.id'),
+								)
+							),
+						)); ?>
+					<?php endif; ?>
 
 					<li role="presentation" class="divider"></li>
 

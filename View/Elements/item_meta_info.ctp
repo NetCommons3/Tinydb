@@ -8,6 +8,7 @@
 		); ?>&nbsp;
 
 		<?php echo $this->NetCommonsHtml->handleLink($tinydbItem, array('avatar' => true)); ?>&nbsp;
+		<?php if (isset($tinydbItem['CategoriesLanguage']['category_id'])):?>
 		<?php echo __tinydbd('tinydb', 'Category') ?>:<?php echo $this->NetCommonsHtml->link(
 			$tinydbItem['CategoriesLanguage']['name'],
 			array(
@@ -17,5 +18,6 @@
 				'category_id' => $tinydbItem['TinydbItem']['category_id']
 			)
 		); ?>
+		<?php endif; ?>
 	</div>
 </div>
