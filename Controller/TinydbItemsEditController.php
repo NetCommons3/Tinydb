@@ -17,7 +17,7 @@ App::uses('TinydbAppController', 'Tinydb.Controller');
  * @property TinydbCategory $TinydbCategory
  * @property NetCommonsComponent $NetCommons
  */
-class TinydbItemsEditController extends TinydbAppController {
+abstract class TinydbItemsEditController extends TinydbAppController {
 
 /**
  * @var array use models

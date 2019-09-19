@@ -12,7 +12,7 @@ require_once dirname(__DIR__) . '/Lib/TinydbFunctions.php';
  * @property TinydbSetting $TinydbSetting
  * @property Block $Block
  */
-class TinydbAppController extends AppController {
+abstract class TinydbAppController extends AppController {
 
 /**
  * @var array ブログ名

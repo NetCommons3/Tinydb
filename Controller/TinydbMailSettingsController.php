@@ -19,7 +19,7 @@ require_once dirname(__DIR__) . '/Lib/TinydbFunctions.php';
  * @author Shohei Nakajima <nakajimashouhei@gmail.com>
  * @package NetCommons\Tinydb\Controller
  */
-class TinydbMailSettingsController extends MailSettingsController {
+abstract class TinydbMailSettingsController extends MailSettingsController {
 
 /**
  * use helpers

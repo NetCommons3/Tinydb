@@ -17,7 +17,7 @@ App::uses('TinydbAppController', 'Tinydb.Controller');
  * @author Shohei Nakajima <nakajimashouhei@gmail.com>
  * @package NetCommons\Tinydb\Controller
  */
-class TinydbFrameSettingsController extends TinydbAppController {
+abstract class TinydbFrameSettingsController extends TinydbAppController {
 
 /**
  * layout

@@ -17,7 +17,7 @@ App::uses('TinydbAppController', 'Tinydb.Controller');
  * @property TinydbCategory $TinydbCategory
  * @property Category $Category
  */
-class TinydbItemsController extends TinydbAppController {
+abstract class TinydbItemsController extends TinydbAppController {
 
 /**
  * @var array use models

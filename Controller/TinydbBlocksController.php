@@ -19,7 +19,7 @@ App::uses('TinydbAppController', 'Tinydb.Controller');
  *
  * @property Tinydb $Tinydb
  */
-class TinydbBlocksController extends TinydbAppController {
+abstract class TinydbBlocksController extends TinydbAppController {
 
 /**
  * layout

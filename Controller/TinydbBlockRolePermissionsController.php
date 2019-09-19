@@ -17,7 +17,7 @@ App::uses('TinydbAppController', 'Tinydb.Controller');
  * @author Shohei Nakajima <nakajimashouhei@gmail.com>
  * @package NetCommons\Tinydb\Controller
  */
-class TinydbBlockRolePermissionsController extends TinydbAppController {
+abstract class TinydbBlockRolePermissionsController extends TinydbAppController {
 
 /**
  * layout
