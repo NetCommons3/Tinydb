@@ -33,10 +33,10 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 
 
 
-	<div>
+	<div class="clearfix">
 		<?php echo $tinydbItem['TinydbItem']['body1']; ?>
 	</div>
-	<div>
+	<div class="clearfix">
 		<?php echo $tinydbItem['TinydbItem']['body2']; ?>
 	</div>
 
