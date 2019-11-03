@@ -1,4 +1,5 @@
 <?php
+require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
 /**
  * Tinydb::beforeSave()とafterSave()のテスト
  *

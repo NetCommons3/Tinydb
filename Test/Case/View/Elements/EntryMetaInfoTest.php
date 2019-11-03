@@ -1,4 +1,5 @@
 <?php
+require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
 /**
  * View/Elements/item_meta_infoのテスト
  *

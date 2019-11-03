@@ -30,6 +30,9 @@ class TinydbAppModel extends AppModel {
 			return;
 		}
 		$dbType = $dbTypeInstance->getDbType();
+		if ($dbType === 'Tinydb') {
+			return;
+		}
 		$pluginName = $dbType;
 		$modelName = str_replace('Tinydb', $dbType, get_class($this));
 		$dbModel = ClassRegistry::init($pluginName . '.' . $modelName, true);
