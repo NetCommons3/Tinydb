@@ -8,6 +8,9 @@ class TinydbView extends View {
 		// TinydbのViewを使うときは具象プラグインのPathsを優先で追加
 		if ($plugin === 'Tinydb') {
 			$currentDbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
+			if ($currentDbType === 'Tinydb') {
+				return $paths;
+			}
 			$currentDbTypePaths = parent::_paths($currentDbType);
 			$currentDbTypePaths = array_reverse($currentDbTypePaths);
 			foreach ($currentDbTypePaths as $path) {
