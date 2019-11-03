@@ -14,6 +14,7 @@
  */
 class TinydbFixture extends CakeTestFixture {
 
+	public $table = 'tinydb';
 /**
  * Records
  *
@@ -50,7 +51,7 @@ class TinydbFixture extends CakeTestFixture {
  */
 	public function init() {
 		require_once App::pluginPath('Tinydb') . 'Config' . DS . 'Schema' . DS . 'schema.php';
-		$this->fields = (new TinydbSchema())->tables[Inflector::tableize($this->name)];
+		$this->fields = (new TinydbSchema())->tables['tinydb'];
 		parent::init();
 	}
 
