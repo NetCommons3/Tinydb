@@ -3,7 +3,11 @@ function __tinydbd($domain, $msg, $args = null) {
 	if ($domain !== 'tinydb') {
 		return __d($domain, $msg, $args);
 	}
-	$dbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
+	$dbTypeInstance = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+	if ($dbTypeInstance === null) {
+		return __d($domain, $msg, $args);
+	}
+	$dbType = $dbTypeInstance->getDbType();
 	$domain = Inflector::underscore($dbType);
 
 	App::uses('I18n', 'I18n');
