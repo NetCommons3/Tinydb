@@ -1,6 +1,4 @@
 <?php
-require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
-
 namespace Edumap\Tinydb\TestCase\Lib;
 
 use Edumap\Tinydb\Lib\CurrentDbType;
