@@ -113,6 +113,7 @@ class TinydbSaveTest extends NetCommonsSaveTest {
 				'key' => $tinydbKey,
 				'name' => 'tinydbName',
 				'block_id' => $blockId,
+				'db_type' => '',
 				//'bbs_article_count' => '0',
 				//'bbs_article_modified' => null,
 			),

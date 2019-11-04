@@ -76,6 +76,7 @@ class TinydbSaveTinydbTest extends NetCommonsSaveTest {
 		$results[1] = array($data);
 		$results[1] = Hash::insert($results[1], '0.Tinydb.id', null);
 		$results[1] = Hash::insert($results[1], '0.Tinydb.key', null);
+		//$results[1] = Hash::insert($results[1], '0.Tinydb.db_type', '');
 		$results[1] = Hash::remove($results[1], '0.Tinydb.created_user');
 		$results[1] = Hash::remove($results[1], '0.Tinydb.created');
 

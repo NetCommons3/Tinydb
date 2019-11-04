@@ -54,7 +54,10 @@ class TinydbSetting extends BlockBaseModel {
 	);
 
 	public function __construct($id = false, $table = null, $ds = null) {
-		$this->plugin = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
+		$dbTypeInstance = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+		if ($dbTypeInstance) {
+			$this->plugin = $dbTypeInstance->getDbType();
+		}
 		parent::__construct($id, $table, $ds);
 	}
 
