@@ -72,7 +72,7 @@ class TinydbBlocksControllerEditTest extends BlocksControllerEditTest {
 		$frameId = '6';
 		//$frameKey = 'frame_3';
 		if ($isEdit) {
-			$blockId = '4';
+			$blockId = '2';
 			$blockKey = 'block_2';
 			$tinydbId = '3';
 			$tinydbKey = 'tinydb_key_2';

@@ -89,7 +89,7 @@ class TinydbBlocksControllerBeforeFilterTest extends NetCommonsControllerTestCas
 
 		//チェック
 		$this->assertFalse($this->controller->Components->loaded('Categories.CategoryEdit'));
-		$this->assertNotEmpty($this->view);
+		//$this->assertNotEmpty($this->view);
 
 		//ログアウト
 		TestAuthGeneral::logout($this);
