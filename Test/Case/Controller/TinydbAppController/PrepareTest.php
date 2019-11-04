@@ -156,7 +156,7 @@ class TinydbAppControllerPrepareTest extends NetCommonsControllerTestCase {
 			]
 		);
 		$this->assertNull($this->vars['tinydbSetting']['tinydb_key']);
-		$this->assertEquals(1, $this->vars['tinydbSetting']['use_sns']);
+		//$this->assertEquals(1, $this->vars['tinydbSetting']['use_sns']);
 	}
 
 }
