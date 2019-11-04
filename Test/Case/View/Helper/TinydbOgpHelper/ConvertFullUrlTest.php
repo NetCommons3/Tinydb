@@ -82,7 +82,7 @@ class TinydbOgpConvertFullUrlTest extends NetCommonsHelperTestCase {
 		$method->setAccessible(true);
 
 		$result = $method->invoke($this->TinydbOgp, $imageUrl);
-		debug($result);
+		//debug($result);
 		$this->assertEquals($fullUrl, $result);
 	}
 
