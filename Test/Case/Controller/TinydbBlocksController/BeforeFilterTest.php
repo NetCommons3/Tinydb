@@ -85,7 +85,7 @@ class TinydbBlocksControllerBeforeFilterTest extends NetCommonsControllerTestCas
 
 		//テスト実行
 		$this->_testGetAction(array('action' => 'index', 'block_id' => '2', 'frame_id' => '6'),
-			array('method' => 'assertNotEmpty'), null, 'view');
+			null, null, 'view');
 
 		//チェック
 		$this->assertFalse($this->controller->Components->loaded('Categories.CategoryEdit'));
