@@ -24,6 +24,10 @@ class TinydbView extends View {
 
 		// Tinydb具象プラグインを使うときはTinydbのViewPathsを劣後で追加
 		if (\Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType() === $plugin) {
+			$currentDbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
+			if ($currentDbType === 'Tinydb') {
+				return $paths;
+			}
 			// TinydbのViewを劣後で追加
 			$tinydbPaths = parent::_paths('Tinydb');
 			$tinydbPaths = array_filter($tinydbPaths, function ($path) {
