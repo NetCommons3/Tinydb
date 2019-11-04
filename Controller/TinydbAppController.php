@@ -62,8 +62,10 @@ abstract class TinydbAppController extends AppController {
 	}
 
 	public function beforeRender() {
-		// viewPathに含まれるプラグイン名をTinydbに変更
-		$this->viewPath = str_replace($this->plugin, 'Tinydb', $this->viewPath);
+		if ($this->plugin !== 'TestTinydb') {
+			// テスト以外だったら viewPathに含まれるプラグイン名をTinydbに変更
+			$this->viewPath = str_replace($this->plugin, 'Tinydb', $this->viewPath);
+		}
 
 		parent::beforeRender();
 	}
