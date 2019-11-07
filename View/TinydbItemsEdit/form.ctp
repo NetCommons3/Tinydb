@@ -106,7 +106,7 @@ $dataJson = json_encode(
 						array(
 							'type' => 'delete',
 							'url' => NetCommonsUrl::blockUrl(
-								array('controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items_edit', 'action' => 'delete', 'frame_id' => Current::read('Frame.id')))
+								array('controller' => \NetCommons\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items_edit', 'action' => 'delete', 'frame_id' => Current::read('Frame.id')))
 						)
 					) ?>
 					<?php echo $this->NetCommonsForm->input('key', array('type' => 'hidden')); ?>

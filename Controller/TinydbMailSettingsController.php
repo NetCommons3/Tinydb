@@ -47,7 +47,7 @@ abstract class TinydbMailSettingsController extends MailSettingsController {
 		parent::beforeFilter();
 
 		// CurrentDbType初期化
-		\Edumap\Tinydb\Lib\CurrentDbType::initByPlugin(
+		\NetCommons\Tinydb\Lib\CurrentDbType::initByPlugin(
 			$this->plugin
 		);
 		$this->viewClass = 'Tinydb.Tinydb';

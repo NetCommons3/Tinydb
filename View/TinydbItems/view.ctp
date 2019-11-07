@@ -49,7 +49,7 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 		<?php foreach ($tinydbItem['Tag'] as $tinydbTag): ?>
 			<?php echo $this->NetCommonsHtml->link(
 				$tinydbTag['name'],
-				array('controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items', 'action' => 'tag', 'frame_id' => Current::read('Frame.id'), 'id' => $tinydbTag['id'])
+				array('controller' => \NetCommons\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items', 'action' => 'tag', 'frame_id' => Current::read('Frame.id'), 'id' => $tinydbTag['id'])
 			); ?>&nbsp;
 		<?php endforeach; ?>
 	</div>

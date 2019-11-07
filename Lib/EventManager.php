@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Edumap\Tinydb\Lib;
+namespace NetCommons\Tinydb\Lib;
 
 
 class EventManager {

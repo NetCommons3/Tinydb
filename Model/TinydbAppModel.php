@@ -10,7 +10,7 @@ App::uses('AppModel', 'Model');
 class TinydbAppModel extends AppModel {
 
 	public function __construct($id = false, $table = null, $ds = null) {
-		$dbType = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+		$dbType = \NetCommons\Tinydb\Lib\CurrentDbType::instance();
 		if ($dbType !== null) {
 			$this->plugin = $dbType->getDbType();
 		}
@@ -18,18 +18,18 @@ class TinydbAppModel extends AppModel {
 	}
 
 	protected function _triggerEvent(string $localEventName, &...$args) {
-		$dbTypeInstance = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+		$dbTypeInstance = \NetCommons\Tinydb\Lib\CurrentDbType::instance();
 		if ($dbTypeInstance === null) {
 			return;
 		}
 		$dbType = $dbTypeInstance->getDbType();
 		$fullEventName = $dbType . '.Tinydb.Model.' . $localEventName;
-		\Edumap\Tinydb\Lib\EventManager::instance()->dispatchByArray($fullEventName, $args);
+		\NetCommons\Tinydb\Lib\EventManager::instance()->dispatchByArray($fullEventName, $args);
 	}
 
 	protected function _setUpDbType() {
 		// Migration実行時にdbType不定になるので
-		$dbTypeInstance = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+		$dbTypeInstance = \NetCommons\Tinydb\Lib\CurrentDbType::instance();
 		if ($dbTypeInstance === null) {
 			return;
 		}

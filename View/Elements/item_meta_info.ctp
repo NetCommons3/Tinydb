@@ -12,7 +12,7 @@
 		<?php echo __tinydbd('tinydb', 'Category') ?>:<?php echo $this->NetCommonsHtml->link(
 			$tinydbItem['CategoriesLanguage']['name'],
 			array(
-				'controller' => \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items',
+				'controller' => \NetCommons\Tinydb\Lib\CurrentDbType::instance()->getDbTypeKey() . '_items',
 				'action' => 'index',
 				'frame_id' => Current::read('Frame.id'),
 				'category_id' => $tinydbItem['TinydbItem']['category_id']

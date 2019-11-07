@@ -1,5 +1,5 @@
 {
-    "name": "edumap/tinydb",
+    "name": "netcommons/tinydb",
     "description": "Tinydb for NetCommons Plugin",
     "homepage": "http://www.netcommons.org/",
     "extra": {
@@ -31,10 +31,6 @@
             "email": "ryuji@ryus.co.jp",
             "homepage": "http://ryus.co.jp/",
             "role": "Developer"
-        },
-        {
-            "name": "Edumap",
-            "homepage": "https://edumap.jp"
         }
     ],
     "type": "cakephp-plugin",
@@ -47,8 +43,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Edumap\\Tinydb\\": "",
-            "Edumap\\Tinydb\\TestCase\\": "Test/Case/"
+            "NetCommons\\Tinydb\\": "",
+            "NetCommons\\Tinydb\\TestCase\\": "Test/Case/"
         }
     }
 }

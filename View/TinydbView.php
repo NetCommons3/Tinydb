@@ -7,7 +7,7 @@ class TinydbView extends View {
 
 		// TinydbのViewを使うときは具象プラグインのPathsを優先で追加
 		if ($plugin === 'Tinydb') {
-			$currentDbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
+			$currentDbType = \NetCommons\Tinydb\Lib\CurrentDbType::instance()->getDbType();
 			if ($currentDbType === 'Tinydb') {
 				return $paths;
 			}
@@ -23,8 +23,8 @@ class TinydbView extends View {
 		}
 
 		// Tinydb具象プラグインを使うときはTinydbのViewPathsを劣後で追加
-		if (\Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType() === $plugin) {
-			$currentDbType = \Edumap\Tinydb\Lib\CurrentDbType::instance()->getDbType();
+		if (\NetCommons\Tinydb\Lib\CurrentDbType::instance()->getDbType() === $plugin) {
+			$currentDbType = \NetCommons\Tinydb\Lib\CurrentDbType::instance()->getDbType();
 			if ($currentDbType === 'Tinydb') {
 				return $paths;
 			}

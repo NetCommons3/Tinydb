@@ -1,8 +1,8 @@
 <?php
-namespace Edumap\Tinydb\TestCase\Lib;
+namespace NetCommons\Tinydb\TestCase\Lib;
 
-use Edumap\Tinydb\Lib\CurrentDbType;
-use Edumap\Tinydb\Lib\EventManager;
+use NetCommons\Tinydb\Lib\CurrentDbType;
+use NetCommons\Tinydb\Lib\EventManager;
 
 class EventManagerTest extends \CakeTestCase {
 

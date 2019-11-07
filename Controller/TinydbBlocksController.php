@@ -99,7 +99,7 @@ abstract class TinydbBlocksController extends TinydbAppController {
  * @return void
  */
 	public function index() {
-		$currentDbType = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+		$currentDbType = \NetCommons\Tinydb\Lib\CurrentDbType::instance();
 		if ($currentDbType->isSingleDb()) {
 			// シングルDBモード
 			// 既にDBがあれば、editへ

@@ -71,7 +71,7 @@ class TinydbViewElementsTinydbItemsEditLinkTest extends NetCommonsControllerTest
 	public function testEditLink() {
 		//ログイン
 		TestAuthGeneral::login($this, Role::ROOM_ROLE_KEY_EDITOR);
-		\Edumap\Tinydb\Lib\CurrentDbType::initByPlugin('test_tinydb');
+		\NetCommons\Tinydb\Lib\CurrentDbType::initByPlugin('test_tinydb');
 		//テスト実行
 		$this->_testGetAction('/test_tinydb/test_view_elements_tinydb_items_edit_link/edit_link/2?frame_id=6',
 				array('method' => 'assertNotEmpty'), null, 'view');

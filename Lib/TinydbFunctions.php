@@ -3,7 +3,7 @@ function __tinydbd($domain, $msg, $args = null) {
 	if ($domain !== 'tinydb') {
 		return __d($domain, $msg, $args);
 	}
-	$dbTypeInstance = \Edumap\Tinydb\Lib\CurrentDbType::instance();
+	$dbTypeInstance = \NetCommons\Tinydb\Lib\CurrentDbType::instance();
 	if ($dbTypeInstance === null) {
 		return __d($domain, $msg, $args);
 	}
