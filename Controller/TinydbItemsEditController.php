@@ -261,7 +261,7 @@ abstract class TinydbItemsEditController extends TinydbAppController {
 	 * @param $tinydbItem
 	 * @return void
 	 */
-	protected function _addFromItem($tinydbItem) : void {
+	protected function _addFromItem($tinydbItem) {
 // 初期化したいフィールドはunsetする
 		// 新規扱いにするのでidは削除する
 		unset($tinydbItem['TinydbItem']['id']);
