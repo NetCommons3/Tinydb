@@ -255,14 +255,14 @@ abstract class TinydbItemsEditController extends TinydbAppController {
 		);
 	}
 
-	/**
-	 * ${CARET}_addFromItem
-	 *
-	 * @param $tinydbItem
-	 * @return void
-	 */
+/**
+ * ${CARET}_addFromItem
+ *
+ * @param array $tinydbItem TinydbItem data
+ * @return void
+ */
 	protected function _addFromItem($tinydbItem) {
-// 初期化したいフィールドはunsetする
+		// 初期化したいフィールドはunsetする
 		// 新規扱いにするのでidは削除する
 		unset($tinydbItem['TinydbItem']['id']);
 		unset($tinydbItem['TinydbItem']['key']);

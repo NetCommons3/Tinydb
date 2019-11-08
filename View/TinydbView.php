@@ -1,7 +1,25 @@
 <?php
+/**
+ * Tinydbプラグイン用Viewクラス
+ */
+
 App::uses('View', 'View');
 
+/**
+ * Class TinydbView
+ */
 class TinydbView extends View {
+
+/**
+ * _paths
+ *
+ * TinydbのViewファイルと同名のファイルが具象プラグインにあれば
+ * 具象プラグインのViewファイルでレンダリングされるようにする
+ *
+ * @param string|null $plugin plugin
+ * @param bool $cached cached
+ * @return array
+ */
 	protected function _paths($plugin = null, $cached = true) {
 		$paths = parent::_paths($plugin, $cached);
 

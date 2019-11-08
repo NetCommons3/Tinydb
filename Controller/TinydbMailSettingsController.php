@@ -51,7 +51,6 @@ abstract class TinydbMailSettingsController extends MailSettingsController {
 			$this->plugin
 		);
 		$this->viewClass = 'Tinydb.Tinydb';
-
 	}
 
 /**
@@ -62,7 +61,6 @@ abstract class TinydbMailSettingsController extends MailSettingsController {
  * @return void
  */
 	public function beforeRender() {
-
 		// viewPathに含まれるプラグイン名をTinydbに変更
 		$this->viewPath = str_replace($this->plugin, 'Tinydb', $this->viewPath);
 

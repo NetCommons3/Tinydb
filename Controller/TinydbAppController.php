@@ -50,6 +50,11 @@ abstract class TinydbAppController extends AppController {
 		'Tinydb.TinydbFrameSetting'
 	);
 
+/**
+ * beforeFilter
+ *
+ * @return void
+ */
 	public function beforeFilter() {
 		parent::beforeFilter();
 
@@ -58,9 +63,13 @@ abstract class TinydbAppController extends AppController {
 			$this->plugin
 		);
 		$this->viewClass = 'Tinydb.Tinydb';
-
 	}
 
+/**
+ * beforeRender
+ *
+ * @return void
+ */
 	public function beforeRender() {
 		if ($this->plugin !== 'TestTinydb') {
 			// テスト以外だったら viewPathに含まれるプラグイン名をTinydbに変更

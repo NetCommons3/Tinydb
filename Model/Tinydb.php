@@ -108,7 +108,10 @@ class Tinydb extends TinydbAppModel {
 			'name' => array(
 				'notBlank' => array(
 					'rule' => array('notBlank'),
-					'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Tinydb name')),
+					'message' => sprintf(
+						__tinydbd('net_commons', 'Please input %s.'),
+						__tinydbd('tinydb', 'Tinydb name')
+					),
 					'required' => true
 				),
 			),

@@ -53,6 +53,14 @@ class TinydbSetting extends BlockBaseModel {
 		),
 	);
 
+/**
+ * TinydbSetting constructor.
+ *
+ * @param bool|int|string|array $id Set this ID for this model on startup,
+ * can also be an array of options, see above.
+ * @param string|false $table Name of database table to use.
+ * @param string $ds DataSource connection name.
+ */
 	public function __construct($id = false, $table = null, $ds = null) {
 		$dbTypeInstance = \NetCommons\Tinydb\Lib\CurrentDbType::instance();
 		if ($dbTypeInstance) {

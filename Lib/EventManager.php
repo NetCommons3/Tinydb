@@ -1,17 +1,29 @@
 <?php
-
+/**
+ * Tinydb EventManager
+ */
 
 namespace NetCommons\Tinydb\Lib;
 
 
+/**
+ * Class EventManager
+ *
+ * @package NetCommons\Tinydb\Lib
+ */
 class EventManager {
 
-	/**
-	 * @var callable[]
-	 */
-	private $callbacks;
+/**
+ * @var callable[]
+ */
+	private $__callbacks;
 
-	public static function instance() : self{
+/**
+ * instance
+ *
+ * @return EventManager
+ */
+	public static function instance() {
 		static $instance;
 		if ($instance === null) {
 			$instance = new self();
@@ -19,18 +31,39 @@ class EventManager {
 		return $instance;
 	}
 
+/**
+ * attach
+ *
+ * @param string $event event name
+ * @param callable $callable コールバック
+ * @return void
+ */
 	public function attach($event, callable $callable) {
-		$this->callbacks[$event][] = $callable;
+		$this->__callbacks[$event][] = $callable;
 	}
 
+/**
+ * dispatch
+ *
+ * @param string $event event name
+ * @param mixed &$args 引数
+ * @return void
+ */
 	public function dispatch(string $event, &...$args) {
-		foreach ($this->callbacks[$event] ?? [] as $callback) {
+		foreach ($this->__callbacks[$event] ?? [] as $callback) {
 			call_user_func_array($callback, $args);
 		}
-
 	}
+
+/**
+ * dispatchByArray
+ *
+ * @param string $event event name
+ * @param mixed &$args 引数
+ * @return void
+ */
 	public function dispatchByArray(string $event, &$args) {
-		foreach ($this->callbacks[$event] ?? [] as $callback) {
+		foreach ($this->__callbacks[$event] ?? [] as $callback) {
 			call_user_func_array($callback, $args);
 		}
 	}

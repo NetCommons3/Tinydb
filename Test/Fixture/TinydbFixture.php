@@ -14,7 +14,11 @@
  */
 class TinydbFixture extends CakeTestFixture {
 
+/**
+ * @var string table
+ */
 	public $table = 'tinydb';
+
 /**
  * Records
  *

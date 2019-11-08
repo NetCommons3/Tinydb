@@ -111,6 +111,13 @@ class TinydbItem extends TinydbAppModel {
 		),
 	);
 
+/**
+ * TinydbItem constructor.
+ *
+ * @param int|bool $id id
+ * @param string|null $table table
+ * @param mixed|null $ds ds
+ */
 	public function __construct($id = false, $table = null, $ds = null) {
 		$this->_setUpDbType();
 		$this->_triggerEvent('TinydbItem.construct', $this);
@@ -149,6 +156,13 @@ class TinydbItem extends TinydbAppModel {
 		return parent::beforeValidate($options);
 	}
 
+/**
+ * afterSave
+ *
+ * @param bool $created created
+ * @param array $options options
+ * @return void
+ */
 	public function afterSave($created, $options = array()) {
 		$this->_triggerEvent('TinydbItem.afterSave', $created, $options, $this->data);
 		parent::afterSave($created, $options);
@@ -183,7 +197,10 @@ class TinydbItem extends TinydbAppModel {
 			'title' => array(
 				'notBlank' => [
 					'rule' => array('notBlank'),
-					'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Title')),
+					'message' => sprintf(
+						__tinydbd('net_commons', 'Please input %s.'),
+						__tinydbd('tinydb', 'Title')
+					),
 					//'allowEmpty' => false,
 					'required' => true,
 					//'last' => false, // Stop validation after this rule
@@ -193,7 +210,10 @@ class TinydbItem extends TinydbAppModel {
 			'body1' => array(
 				'notBlank' => [
 					'rule' => array('notBlank'),
-					'message' => sprintf(__tinydbd('net_commons', 'Please input %s.'), __tinydbd('tinydb', 'Body1')),
+					'message' => sprintf(
+						__tinydbd('net_commons', 'Please input %s.'),
+						__tinydbd('tinydb', 'Body1')
+					),
 					//'allowEmpty' => false,
 					'required' => true,
 					//'last' => false, // Stop validation after this rule
@@ -415,18 +435,15 @@ class TinydbItem extends TinydbAppModel {
 			}
 
 			// dbType別の保存
-			// TODO バリデート
 			$dbTypeModelName = key($this->hasOne ?? []);
 			if ($dbTypeModelName) {
 				$savedData[$dbTypeModelName]['tinydb_item_id'] = $this->id;
-				// TODO エラー処理
 				$this->$dbTypeModelName->save($savedData);
 			}
 
 			//多言語化の処理
 			$this->set($savedData);
 			$this->saveM17nData();
-
 
 			$this->commit();
 

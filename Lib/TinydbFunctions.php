@@ -1,4 +1,17 @@
 <?php
+/**
+ * Tinydb用関数
+ */
+
+/**
+ * __tinydbd __dの代わりに使う. 具象プラグインに同じメッセージの翻訳が定義されてたらそちらを使う。
+ * なければ、Tinydbのメッセージを使う
+ *
+ * @param string $domain domain
+ * @param string $msg message
+ * @param mixed|null $args その他引数
+ * @return string
+ */
 function __tinydbd($domain, $msg, $args = null) {
 	if ($domain !== 'tinydb') {
 		return __d($domain, $msg, $args);
