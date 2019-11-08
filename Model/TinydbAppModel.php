@@ -15,6 +15,7 @@ class TinydbAppModel extends AppModel {
  * @param int|bool $id id
  * @param string|null $table table
  * @param mixed|null $ds ds
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 	public function __construct($id = false, $table = null, $ds = null) {
 		$dbType = \NetCommons\Tinydb\Lib\CurrentDbType::instance();

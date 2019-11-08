@@ -60,6 +60,7 @@ class TinydbSetting extends BlockBaseModel {
  * can also be an array of options, see above.
  * @param string|false $table Name of database table to use.
  * @param string $ds DataSource connection name.
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 	public function __construct($id = false, $table = null, $ds = null) {
 		$dbTypeInstance = \NetCommons\Tinydb\Lib\CurrentDbType::instance();

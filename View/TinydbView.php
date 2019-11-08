@@ -19,6 +19,7 @@ class TinydbView extends View {
  * @param string|null $plugin plugin
  * @param bool $cached cached
  * @return array
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 	protected function _paths($plugin = null, $cached = true) {
 		$paths = parent::_paths($plugin, $cached);

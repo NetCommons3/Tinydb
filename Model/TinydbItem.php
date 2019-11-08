@@ -117,6 +117,7 @@ class TinydbItem extends TinydbAppModel {
  * @param int|bool $id id
  * @param string|null $table table
  * @param mixed|null $ds ds
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 	public function __construct($id = false, $table = null, $ds = null) {
 		$this->_setUpDbType();
