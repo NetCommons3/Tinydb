@@ -11,9 +11,15 @@ require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
  */
 
 App::uses('NetCommonsTestSuite', 'NetCommons.TestSuite');
-if (file_exists(__DIR__ .'/../../vendors/autoload.php')) {
-	require_once __DIR__ .'/../../vendors/autoload.php';
+
+// travis-ciでのテスト用
+$autoloadPath = getenv('TRAVIS_BUILD_DIR') . '/vendors/autoload.php';
+if (file_exists($autoloadPath)) {
+	require_once $autoloadPath;
 }
+//if (file_exists(__DIR__ .'/../../vendors/autoload.php')) {
+//	require_once __DIR__ .'/../../vendors/autoload.php';
+//}
 /**
  * All _Test Test suite
  *
