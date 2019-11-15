@@ -14,7 +14,7 @@ namespace NetCommons\Tinydb\Lib;
 class EventManager {
 
 /**
- * @var callable[]
+ * @var callable[] コールバックリスト
  */
 	private $__callbacks;
 

@@ -14,12 +14,12 @@ namespace NetCommons\Tinydb\Lib;
 class CurrentDbType {
 
 /**
- * @var self
+ * @var self 自分自身のインスタンス
  */
 	private static $__selfInstance;
 
 /**
- * @var string
+ * @var string Tinydb Type
  */
 	private $__dbType;
 

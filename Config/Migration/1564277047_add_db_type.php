@@ -1,4 +1,11 @@
 <?php
+/**
+ *  AddDbType Migration
+ */
+
+/**
+ * Class AddDbType
+ */
 class AddDbType extends CakeMigration {
 
 /**

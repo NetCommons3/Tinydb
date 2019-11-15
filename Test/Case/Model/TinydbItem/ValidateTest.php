@@ -1,5 +1,4 @@
 <?php
-require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
 /**
  * TinydbItem::validate()のテスト
  *
@@ -9,6 +8,7 @@ require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
  * @license http://www.netcommons.org/license.txt NetCommons License
  * @copyright Copyright 2014, NetCommons Project
  */
+require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
 
 App::uses('NetCommonsValidateTest', 'NetCommons.TestSuite');
 App::uses('TinydbItemFixture', 'Tinydb.Test/Fixture');

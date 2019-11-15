@@ -1,5 +1,4 @@
 <?php
-require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
 /**
  * Tinydb::beforeSave()とafterSave()のテスト
  *
@@ -9,6 +8,7 @@ require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
  * @license http://www.netcommons.org/license.txt NetCommons License
  * @copyright Copyright 2014, NetCommons Project
  */
+require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
 
 App::uses('NetCommonsModelTestCase', 'NetCommons.TestSuite');
 App::uses('NetCommonsSaveTest', 'NetCommons.TestSuite');
