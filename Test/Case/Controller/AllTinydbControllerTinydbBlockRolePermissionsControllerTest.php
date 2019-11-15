@@ -1,5 +1,4 @@
 <?php
-require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
 /**
  * All TinydbBlockRolePermissionsController Test suite
  *
@@ -9,6 +8,11 @@ require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
  * @license http://www.netcommons.org/license.txt NetCommons License
  * @copyright Copyright 2014, NetCommons Project
  */
+
+/**
+ * require
+ */
+require_once CakePlugin::path('Tinydb') . 'Lib/TinydbFunctions.php';
 
 App::uses('NetCommonsTestSuite', 'NetCommons.TestSuite');
 
