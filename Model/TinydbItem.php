@@ -42,7 +42,8 @@ class TinydbItem extends TinydbAppModel {
 			'fields' => array(
 				'title' => 'title',
 				'summary' => 'body1',
-				'path' => '/:plugin_key/tinydb_items/view/:block_id/:content_key',
+				// TODO tinydb_itemsじゃダメなんだな
+				'path' => '/:plugin_key/{{db_type}}_items/view/:block_id/:content_key',
 			),
 			'search_contents' => array('body2')
 		),
@@ -121,6 +122,7 @@ class TinydbItem extends TinydbAppModel {
  */
 	public function __construct($id = false, $table = null, $ds = null) {
 		$this->_setUpDbType();
+		$this->__setUpTopicsPath();
 		$this->_triggerEvent('TinydbItem.construct', $this);
 		parent::__construct($id, $table, $ds);
 	}
@@ -493,6 +495,28 @@ class TinydbItem extends TinydbAppModel {
 		);
 		$count = $this->find('count', array('conditions' => $conditions));
 		return ($count == 0);
+	}
+
+/**
+ * 新着プラグインのパスをDbTypeにあわせて変更する
+ *
+ * @return void
+ */
+	private function __setUpTopicsPath() {
+		$dbTypeInstance = \NetCommons\Tinydb\Lib\CurrentDbType::instance();
+		if ($dbTypeInstance === null) {
+			return;
+		}
+		$dbType = $dbTypeInstance->getDbType();
+		if ($dbType === 'Tinydb') {
+			return;
+		}
+		$snakeCaseDbType = Inflector::underscore($dbType);
+		$this->actsAs['Topics.Topics']['fields']['path'] = str_replace(
+			'{{db_type}}',
+			$snakeCaseDbType,
+			$this->actsAs['Topics.Topics']['fields']['path']
+		);
 	}
 
 }
