@@ -10,9 +10,7 @@
 			?>
 			<?php /* パフォーマンス改善のため、一覧表示でFacebook、Twitterボタンは表示しない。詳細画面で表示する */ ?>
 			<?php if (!isset($index)) : ?>
-				<!--Facebook-->
 				<?php echo $this->SnsButton->facebook($contentUrl);?>
-				<!--Twitter-->
 				<div class="pull-left">
 					<?php echo $this->SnsButton->twitter($contentUrl, $tinydbItem['TinydbItem']['title']);?>
 				</div>

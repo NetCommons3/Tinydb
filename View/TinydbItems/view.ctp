@@ -42,7 +42,6 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 
 	<?php echo $this->element('Tinydb.item_footer'); ?>
 
-	<!-- Tags -->
 	<?php if (isset($tinydbItem['Tag'])) : ?>
 	<div>
 		<?php echo __tinydbd('tinydb', 'tag'); ?>
@@ -58,18 +57,6 @@ echo $this->TinydbOgp->ogpMetaByTinydbItem($tinydbItem);
 	<div>
 		<?php /* コンテンツコメント */ ?>
 		<?php echo $this->ContentComment->index($tinydbItem); ?>
-		<!--<div class="row">-->
-		<!--	<div class="col-xs-12">-->
-		<!--		--><?php //echo $this->element('ContentComments.index', array(
-		//			'pluginKey' => $this->request->params['plugin'],
-		//			'contentKey' => $tinydbItem['TinydbItem']['key'],
-		//			'isCommentApproved' => $tinydbSetting['use_comment_approval'],
-		//			'useComment' => $tinydbSetting['use_comment'],
-		//			'contentCommentCnt' => $tinydbItem['ContentCommentCnt']['cnt'],
-		//			'redirectUrl' => $this->NetCommonsHtml->url(array('plugin' => 'tinydb', 'controller' => 'tinydb_items', 'action' => 'view', 'frame_id' => Current::read('Frame.id'), 'key' => $tinydbItem['TinydbItem']['key'])),
-		//		)); ?>
-		<!--	</div>-->
-		<!--</div>-->
 	</div>
 </article>
 
