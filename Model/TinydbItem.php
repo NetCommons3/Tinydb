@@ -42,7 +42,6 @@ class TinydbItem extends TinydbAppModel {
 			'fields' => array(
 				'title' => 'title',
 				'summary' => 'body1',
-				// TODO tinydb_itemsじゃダメなんだな
 				'path' => '/:plugin_key/{{db_type}}_items/view/:block_id/:content_key',
 			),
 			'search_contents' => array('body2')
